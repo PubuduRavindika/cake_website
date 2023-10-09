@@ -1,0 +1,76 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    padding: 50px;
+    background: rgb(240, 213, 217);
+    background: url('backgrounds/cake15.jpg') no-repeat;
+    background-size: cover;
+}
+
+.container{
+    position: relative;
+    z-index: 1;
+    max-width: 500px;
+    width: 100%;
+   
+    margin-right: 30px;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgb(155, 75, 75);
+    display: flex;
+    justify-content: right;
+}
+
+.container header{
+    font-size: 1.5rem;
+    color: black;
+    font-weight: 800;
+    text-align: center;
+}
+
+.container .form{
+    display: flex; 
+    justify-content: space-between; 
+    flex-wrap: wrap; 
+    margin-top: 30px;
+}
+
+.form .column {
+    flex-basis: calc(50% - 20px); /* Each column takes 50% width minus margin */
+    margin-bottom: 20px;
+}
+
+.form button{
+    height: 55px;
+    width: 100%;
+    color: black;
+    font-size: 1rem;
+    border: none;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    background-color: palevioletred;
+}
+
+.form button:hover{
+   background-color: rgb(143, 15, 58);
+}
+
+
+
+
+
+.clear {
+    clear: both;
+}

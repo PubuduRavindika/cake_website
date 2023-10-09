@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Sales Report </title>
+    <link rel="stylesheet" href="sales.css">
+   
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> 
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+    
+<body>
+    
+   
+
+    <section class="container">
+        <header> Sales Report </header>
+        <form action="sales.php" method="post" class="form">
+            
+
+            <div class="input-box">
+                <label>Order Id</label>
+                <input type="number" name="order_id" required />
+            </div>
+
+
+            
+    <div class="select-box">
+        <select name="category" required>
+            <option hidden> Category </option>
+            <option>Birthday</option>
+            <option>Wedding</option>
+            <option>Anniversary</option>
+            <option>Engagement</option>
+            <option>Christmas</option>
+            <option>Other</option>
+        </select>
+    </div>
+
+
+
+    <div class="select-box">
+        <select name="weight" required>
+            <option hidden> Weight </option>
+            <option>0.5kg</option>
+            <option>1kg</option>
+            <option>2kg</option>
+            <option>3kg</option>
+        </select>
+    </div>
+
+
+            
+            <div class="input-box">
+                <label> Price </label>
+                <input type="text" name="price" required/>
+            </div>
+
+            <button> Submit </button>
+
+        </form>
+    </section>
+
+    
+ 
+   
+   
+</body>
+</html>

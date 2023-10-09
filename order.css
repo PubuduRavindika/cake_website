@@ -1,0 +1,119 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+
+body{
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  padding: 20px;
+  
+  background: url('backgrounds/c16.jpg') no-repeat;
+  background-size: cover;
+  
+}
+
+.container{
+  position: relative;
+  z-index: 1;
+  margin-top: 100px;
+  max-width: 600px;
+  width: 100%;
+  
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgb(163, 57, 18);
+}
+
+.container header{
+  font-size: 2rem;
+  color: black;
+  font-weight: 800;
+  text-align: center;
+}
+
+.container .form{
+  margin-top: 30px;
+}
+
+.form .input-box{
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.input-box label{
+  color: black;
+  font-weight: 600;
+}
+
+.form :where(.input-box input, .select-box){
+  position: relative;
+  height: 40px;
+  width: 100%;
+  outline: none;
+  font-size: 1rem;
+  color: #4d4343;
+  margin-top: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  /*padding: 0 15px;*/
+}
+
+.input-box input[type="file"] {
+  border: none; 
+  color: rgb(73, 61, 61);
+  
+}
+
+
+.form .column{
+  display: flex;
+  column-gap: 15px;
+}
+
+.input-box input:focus{
+  box-shadow: 0 1px 0 black;
+}
+
+
+
+.form button{
+  height: 55px;
+  width: 100%;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  margin-top: 30px;
+  cursor: pointer;
+  border-radius: 6px;
+  font-weight: 400;
+  transition: all 0.2s ease;
+  background-color: #c23b22;
+}
+
+.form button:hover{
+ background-color: #581e14;
+}
+
+.select-box select{
+  height: 100%;
+  width:100%;
+  outline:none;
+  border: none;
+  color:#4d4747;
+  font-size: 1rem;
+}
+
+@media screen and (max-width: 500px) {
+  .form .column{
+    flex-wrap: wrap;
+  }
+}
+
+

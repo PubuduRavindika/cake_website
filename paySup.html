@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Payments to Supplier</title>
+    <link rel="stylesheet" href="paySup.css">
+   
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> 
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+    
+<body>
+    
+   
+
+    <section class="container">
+        <header>  Payments to Supplier</header>
+        <form action="pay_sup.php"  method="post" class="form">
+            
+            <div class="input-box">
+                <label>Supplier Id</label>
+                <input type="number" name="supplier_id" required />
+            </div>
+
+            <div class="input-box">
+                <label>Payment Date</label>
+                <input type="date" name="payment_date" required />
+            </div>
+
+            <div class="input-box">
+                <label>Amount</label>
+                <input type="text" name="amount" required/>
+            </div>
+
+           
+
+            <button> Submit </button>
+
+        </form>
+    </section>
+
+    
+ 
+   
+   
+</body>
+</html>

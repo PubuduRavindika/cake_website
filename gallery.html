@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gallery</title>
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="gallery.css">
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> 
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+    
+<body>
+
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <i class="fas fa-bars"></i>
+        </label>
+        <label class="logo">Janith Cakes & Bakers</label>
+        <ul>
+            <li><a class="active" href="home.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="order.html">Order a cake</a></li>
+            <li><a href="review.html">Reviews</a></li>
+            <li><a href="#">Contact us</a>
+                <div class="dropdown_menu">
+              
+                    <ul>
+                     <li><a href="#">Name: Sasanka Indeewari</a></li>
+                     <li><a href="#">Gmail: : sasankaindeewari@yahoo.com </a></li>
+                     <li><a href="#">Phone Number: : 0773462878 </a></li>
+                    </ul>
+                   
+                  </div>
+            
+            </li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </nav>
+    
+    <div class="full-img" id="fullImgBox">
+        <img src="galleryUploads/img1.jpg" id="fullImg">
+        <span onclick="closeFullImg()"> X </span>
+    </div>
+    <div class="img-gallery">
+        <img src="galleryUploads/img1.jpg" onclick="openFullImg(this.src)">
+        <img src="galleryUploads/img2.jpg" onclick="openFullImg(this.src)">
+        <img src="galleryUploads/img3.jpg" onclick="openFullImg(this.src)">
+        <img src="galleryUploads/img4.jpg" onclick="openFullImg(this.src)">
+        <img src="galleryUploads/img5.jpg" onclick="openFullImg(this.src)">
+        <img src="galleryUploads/img6.jpg" onclick="openFullImg(this.src)">
+        <img src="galleryUploads/img7.jpg" onclick="openFullImg(this.src)">
+        <img src="galleryUploads/img8.jpg" onclick="openFullImg(this.src)">
+
+    </div>
+
+    
+<!--<section id="gallery">-->
+    <!-- Images will be dynamically added here -->
+<!--</section>
+
+<script>
+    // Fetch images from the server and display them in the gallery
+    async function fetchAndDisplayImages() {
+        const response = await fetch('getImages.php'); 
+        const images = await response.json();
+
+        const gallerySection = document.getElementById('gallery');
+
+        images.forEach(image => {
+            const imgElement = document.createElement('img');
+            imgElement.src = image.imagePath;
+            gallerySection.appendChild(imgElement);
+        });
+    }
+
+    fetchAndDisplayImages();
+</script>
+
+
+    
+    
+<script> 
+    var fullImgBox = document.getElementById("fullImgBox");
+    var fullImg = document.getElementById("fullImg");
+
+   function openFullImg(pic) {
+       fullImgBox.style.display = "flex";
+       fullImg.src = pic;
+}
+
+   function closeFullImg() {
+       fullImgBox.style.display = "none";
+}
+
+</script>-->
+   
+   
+</body>
+</html>

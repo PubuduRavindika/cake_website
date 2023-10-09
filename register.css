@@ -1,0 +1,89 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding: 20px;
+    background: rgb(240, 213, 217);
+    background: url('backgrounds/c13.png') no-repeat;
+    background-size: cover;
+}
+
+.container{
+    position: relative;
+    z-index: 1;
+    margin-top: 100px;
+    max-width: 600px;
+    width: 100%;
+    margin-left: 30px;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgb(155, 75, 75);
+}
+
+.container header{
+    font-size: 1.5rem;
+    color: black;
+    font-weight: 800;
+    text-align: center;
+}
+
+.container .form{
+    margin-top: 30px;
+}
+
+.form .input-box{
+    width: 100%;
+    margin-top: 20px;
+}
+
+.input-box label{
+    color: black;
+    font-weight: 600;
+}
+
+.form .input-box input{
+    position: relative;
+    height: 40px;
+    width: 100%;
+    outline: none;
+    font-size: 1rem;
+    color: #312a2a;
+    margin-top: 8px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 0 15px;
+}
+
+.input-box input:focus{
+    box-shadow: 0 1px 0 black;
+}
+
+.form button{
+    height: 55px;
+    width: 100%;
+    color: black;
+    font-size: 1rem;
+    border: none;
+    margin-top: 30px;
+    cursor: pointer;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    background-color: palevioletred;
+}
+
+.form button:hover{
+   background-color: rgb(143, 15, 58);
+}
+
+
+
+
