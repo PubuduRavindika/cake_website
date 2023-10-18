@@ -70,3 +70,18 @@ body{
     font-size: 14px;
     margin: 5px 0;
 }
+
+.order-button {
+    background-color: palevioletred;
+    color: black;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    padding: 7px 18px; /* Adjust padding to your liking */
+}
+
+.order-button:hover {
+    background-color: rgb(143, 15, 58);
+}
