@@ -43,39 +43,79 @@
         <img src="galleryUploads/img1.jpg" id="fullImg">
         <span onclick="closeFullImg()"> X </span>
     </div>
-   
 
-   <!-- Display images on the website interface -->
-<!-- <div class="img-gallery">
-    <?php
-
-    error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
-    require_once('connect.php'); // Include the database connection file
-
-    // Fetch product data from the database
-    $query = "SELECT product_id, price, image FROM add_item";
-    $result = $con->query($query);
-    while ($row = $result->fetch_assoc()):
-    ?>
+    <div class="img-gallery">
         <div class="gallery-item">
-            <img src="<?php echo $row['image']; ?>" onclick="openFullImg(this.src)">
+            <img src="backgrounds/birthday/c1.jpg" onclick="openFullImg(this.src)">
             <div class="product-info">
-                <p class="product-id">Product ID: <?php echo $row['product_id']; ?></p>
-                <p class="product-price">Rs.<?php echo $row['price']; ?></p>
+                <p class="product-id">Product ID: 001</p>
+                <p class="product-price">Rs.2099</p>
+                <a href="order.html" class="order-button">Order</a>
             </div>
         </div>
-    <?php endwhile; ?>
-</div> -->
 
+        <div class="gallery-item">
+            <img src="backgrounds/birthday/c2.jpg" onclick="openFullImg(this.src)">
+            <div class="product-info">
+                <p class="product-id">Product ID: 002</p>
+                <p class="product-price">Rs.1200</p>
+                <a href="order.html" class="order-button">Order</a>
+        </div>
+        </div>
+            
+        <div class="gallery-item">
+            <img src="backgrounds/birthday/c3.jpeg" onclick="openFullImg(this.src)">
+            <div class="product-info">
+                <p class="product-id">Product ID: 003</p>
+                <p class="product-price">Rs.1400</p>
+                <a href="order.html" class="order-button">Order</a>
+            </div>
+        </div>
 
+        <div class="gallery-item">
+            <img src="backgrounds/birthday/c4.jpg" onclick="openFullImg(this.src)">
+            <div class="product-info">
+                <p class="product-id">Product ID: 004</p>
+                <p class="product-price">Rs.1400</p>
+                <a href="order.html" class="order-button">Order</a>
+            </div>
+        </div>
         
+        <div class="gallery-item">
+            <img src="backgrounds/birthday/c5.jpg" onclick="openFullImg(this.src)">
+            <div class="product-info">
+                <p class="product-id">Product ID: 005</p>
+                <p class="product-price">Rs.1400</p>
+                <a href="order.html" class="order-button">Order</a>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="backgrounds/birthday/c6.jpg" onclick="openFullImg(this.src)">
+            <div class="product-info">
+                <p class="product-id">Product ID: 006</p>
+                <p class="product-price">Rs.1400</p>
+                <button class="order-button">Order</button>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="backgrounds/birthday/c7.jpg" onclick="openFullImg(this.src)">
+            <div class="product-info">
+                <p class="product-id">Product ID: 007/p>
+                <p class="product-price">Rs.1400</p>
+                <button class="order-button">Order</button>
+            </div>
+        </div>
+
+        </div>
     
     
     
 
-    
+    <section>
+
+    </section>
     
     <!--<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>-->
 

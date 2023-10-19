@@ -20,10 +20,9 @@ body{
     position: relative;
     z-index: 1;
     max-width: 500px;
-    width: 100%;
-   
+    
     margin-right: 30px;
-    padding: 25px;
+    padding: 50px;
     border-radius: 8px;
     box-shadow: 0 0 15px rgb(155, 75, 75);
     display: flex;
@@ -45,11 +44,15 @@ body{
 }
 
 .form .column {
-    flex-basis: calc(50% - 20px); /* Each column takes 50% width minus margin */
-    margin-bottom: 20px;
+    margin-bottom: 20px; /* This creates space below each button */
 }
 
-.form button{
+.form a {
+    display: block; /* Ensure the entire button area is clickable */
+    text-decoration: none; /* Remove underlines from the links */
+}
+
+.form button {
     height: 55px;
     width: 100%;
     color: black;
@@ -63,10 +66,9 @@ body{
     background-color: palevioletred;
 }
 
-.form button:hover{
-   background-color: rgb(143, 15, 58);
+.form button:hover {
+    background-color: rgb(143, 15, 58);
 }
-
 
 
 
