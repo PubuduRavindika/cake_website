@@ -1,6 +1,10 @@
 <?php
 session_start();
 include("connect.php");
+
+if(!isset($_SESSION['customer_id'])){
+    header("location:login.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -41,22 +45,12 @@ include("connect.php");
                   </div>
             
             </li>
-            <li><a href="login.php">Login</a></li>
+            <li><a href="logout.php">Logout</a></li>
         </ul>
     </nav>
 
     <div class="center-content">
-        <h1><u>Welcome to our Online Cake Ordering Wonderland!</u></h1>
-        <hr>
-        <p style="text-align: center;">
-            <br>
-            Explore a delectable array of artisanal cakes, thoughtfully crafted to sweeten your moments.
-            <br> With just a few clicks, you can choose from an assortment of flavors, designs, and sizes, 
-            creating a personalized masterpiece for your celebrations. 
-            <br>Experience the convenience of online cake ordering like never before. 
-            <br>Order, customize, and savor the magic, all from 
-            the comfort of your home.
-        </p>
+        
     </div>
     
     

@@ -22,24 +22,25 @@
           
         <label class="logo">Janith Cakes & Bakers</label>
         <ul>
-            <li><a class="active" href="home.html">Home</a></li>
-            <li><a href="menu.html">Menu</a></li>
+            <li><a class="active" href="index.php">Home</a></li>
+            <li><a href="menu.php">Menu</a></li>
             <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="order.html">Order a cake</a></li>
+            <!-- <li><a href="order.html">Order a cake</a></li> -->
+            <li><a href="dashboard.php">dashboard</a></li>
             <li><a href="review.html">Reviews</a></li>
             <li><a href="#">Contact us</a>
                 <div class="dropdown_menu">
               
                     <ul>
                      <li><a href="#">Name: Sasanka Indeewari</a></li>
-                     <li><a href="#">Gmail: : sasankaindeewari@yahoo.com </a></li>
-                     <li><a href="#">Phone Number: : 0773462878 </a></li>
+                     <li><a href="#">Gmail: sasankaindeewari@yahoo.com </a></li>
+                     <li><a href="#">Phone Number: 0773462878 </a></li>
                     </ul>
                    
                   </div>
             
             </li>
-            <li><a href="login.html">Login</a></li>
+            <li><a href="login.php">Login</a></li>
         </ul>
     </nav>
 
@@ -47,10 +48,11 @@
         <img src="galleryUploads/img1.jpg" id="fullImg">
         <span onclick="closeFullImg()"> X </span>
     </div>
+    
 
     <div class="img-gallery">
         <div class="gallery-item">
-            <img src="backgrounds/christmas/c8.jpg" onclick="openFullImg(this.src)">
+            <img src="backgrounds/anniversary/c1.jpg" onclick="openFullImg(this.src)">
             <div class="product-info">
                 <p class="product-id">Product ID: 001</p>
                 <p class="product-price">Rs.2099</p>
@@ -58,7 +60,7 @@
             </div>
         </div>
         <div class="gallery-item">
-            <img src="backgrounds/christmas/c9.jpg" onclick="openFullImg(this.src)">
+            <img src="backgrounds/anniversary/c2.jpeg" onclick="openFullImg(this.src)">
             <div class="product-info">
                 <p class="product-id">Product ID: 002</p>
                 <p class="product-price">Rs.1200</p>
@@ -67,7 +69,7 @@
         </div>
             
         <div class="gallery-item">
-            <img src="backgrounds/christmas/c1.jpg" onclick="openFullImg(this.src)">
+            <img src="backgrounds/anniversary/c3.jpg" onclick="openFullImg(this.src)">
             <div class="product-info">
                 <p class="product-id">Product ID: 003</p>
                 <p class="product-price">Rs.1400</p>
@@ -76,42 +78,45 @@
         </div>
 
         <div class="gallery-item">
-            <img src="backgrounds/christmas/c2.jpg" onclick="openFullImg(this.src)">
+            <img src="backgrounds/anniversary/c4.jpg" onclick="openFullImg(this.src)">
             <div class="product-info">
                 <p class="product-id">Product ID: 004</p>
-                <p class="product-price">Rs.1400</p>
+                <p class="product-price">$20.99</p>
                 <a href="order.html" class="order-button">Order</a>
             </div>
         </div>
         
         <div class="gallery-item">
-            <img src="backgrounds/christmas/c3.jpg" onclick="openFullImg(this.src)">
+            <img src="backgrounds/anniversary/c5.jpg" onclick="openFullImg(this.src)">
             <div class="product-info">
                 <p class="product-id">Product ID: 005</p>
-                <p class="product-price">Rs.1400</p>
+                <p class="product-price">$20.99</p>
                 <a href="order.html" class="order-button">Order</a>
             </div>
         </div>
 
         <div class="gallery-item">
-            <img src="backgrounds/christmas/c4.jpeg" onclick="openFullImg(this.src)">
+            <img src="backgrounds/anniversary/c6.jpg" onclick="openFullImg(this.src)">
             <div class="product-info">
                 <p class="product-id">Product ID: 006</p>
-                <p class="product-price">Rs.1400</p>
+                <p class="product-price"></p>
                 <a href="order.html" class="order-button">Order</a>
             </div>
         </div>
 
         <div class="gallery-item">
-            <img src="backgrounds/christmas/c5.jpg" onclick="openFullImg(this.src)">
+            <img src="backgrounds/anniversary/c7.png" onclick="openFullImg(this.src)">
             <div class="product-info">
                 <p class="product-id">Product ID: 007</p>
-                <p class="product-price">Rs.1400</p>
+                <p class="product-price">Rs.1450</p>
                 <a href="order.html" class="order-button">Order</a>
             </div>
         </div>
 
         </div>
+        
+    
+    
     
     
     

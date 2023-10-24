@@ -19,12 +19,15 @@ body{
     width: 250px; /* Set the desired fixed width for all images */
     height: 250px; /* Set the desired fixed height for all images */
     cursor: pointer;
+    border-radius: 20px;
+    transition: 0.8s;
 }
 
 .img-gallery img:hover {
-    transform: scale(0.8) rotate(-15deg);
+    transform: scale(0.9) rotate(-10deg);
     border-radius: 20px;
-    box-shadow: 0 32px 75px rgba(68, 77, 136, 0.2);
+    /* box-shadow: 0 32px 75px rgba(68, 77, 136, 0.2); */
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.4);
 }
 
 

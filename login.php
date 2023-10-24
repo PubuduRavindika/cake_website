@@ -29,7 +29,8 @@ include("connect.php");
             <li><a class="active" href="index.php">Home</a></li>
             <li><a href="menu.php">Menu</a></li>
             <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="order.html">Order a cake</a></li>
+            <!-- <li><a href="order.html">Order a cake</a></li> -->
+            <li><a href="dashboard.php">dashboard</a></li>
             <li><a href="review.html">Reviews</a></li>
             <li><a href="#">Contact us</a>
                 <div class="dropdown_menu">
@@ -43,7 +44,7 @@ include("connect.php");
                   </div>
             
             </li>
-            <li><a href="login.html">Login</a></li>
+            <li><a href="login.php">Login</a></li>
         </ul>
     </nav>
     
@@ -91,6 +92,7 @@ include("connect.php");
 
             if ($check_login > 0) {
                 $_SESSION['email'] = $email;
+                $_SESSION['customer_id'] = $row_login['Customer_Id'];
                 echo "<script>alert('Logged in successfully!')</script>";
                 echo "<script>window.open('menu.php','_self')</script>";
             }
