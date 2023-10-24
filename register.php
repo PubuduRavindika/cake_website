@@ -9,14 +9,15 @@ $phone_number = $_POST['phone_number'];
 $regDate = $_POST['regDate'];
 $username = $_POST['username'];
 $password = $_POST['password'];
-$role_as = $_POST['role_as'];
+// $role_as = $_POST['role_as'];
 
 // Prepare and execute SQL query
 $sql = "INSERT INTO `customer` (Customer_Name, Address, Email, Phone_Number, Registration_Date, Username, Password)
         VALUES ('$customer_name', '$address', '$email', '$phone_number', '$regDate', '$username', '$password')";
 
 if (mysqli_query($con, $sql)) {
-    echo "Registration successful!";
+    echo "<script>alert('Logged in successfully!')</script>";
+    echo "<script>window.open('menu.php','_self')</script>";
 } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($con);
 }

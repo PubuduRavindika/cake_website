@@ -1,3 +1,8 @@
+<?php
+session_start();
+include("connect.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,10 +11,6 @@
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="navbar.css">
     <!--<link rel="stylesheet" href="review.css">-->
-    
-    
-    
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <title>Home</title>
 </head>
@@ -22,8 +23,8 @@
           
         <label class="logo">Janith Cakes & Bakers</label>
         <ul>
-            <li><a class="active" href="home.html">Home</a></li>
-            <li><a href="menu.html">Menu</a></li>
+            <li><a class="active" href="home.php">Home</a></li>
+            <li><a href="menu.php">Menu</a></li>
             <li><a href="gallery.html">Gallery</a></li>
             <li><a href="order.html">Order a cake</a></li>
             <li><a href="review.html">Reviews</a></li>
@@ -39,7 +40,7 @@
                   </div>
             
             </li>
-            <li><a href="login.html">Login</a></li>
+            <li><a href="login.php">Login</a></li>
         </ul>
     </nav>
 

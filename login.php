@@ -1,3 +1,8 @@
+<?php
+session_start();
+include("connect.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,8 +26,8 @@
           
         <label class="logo">Janith Cakes & Bakers</label>
         <ul>
-            <li><a class="active" href="home.html">Home</a></li>
-            <li><a href="menu.html">Menu</a></li>
+            <li><a class="active" href="index.php">Home</a></li>
+            <li><a href="menu.php">Menu</a></li>
             <li><a href="gallery.html">Gallery</a></li>
             <li><a href="order.html">Order a cake</a></li>
             <li><a href="review.html">Reviews</a></li>
@@ -44,16 +49,16 @@
     
    <section>
    <div class="login-box">
-     <form action="">
+     <form id="loginForm" method="post" enctype="multipart/form-data">
         <h2>Login</h2>
         <div class="input-box">
             <span class="icon"><ion-icon name="person-circle-outline"></ion-icon></span>
-            <input type="username" required>
+            <input type="text" name="email" required>
             <label> Username</label>
         </div>
         <div class="input-box">
             <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
-            <input type="password" required>
+            <input type="password" name="password" required>
             <label> Password</label>
         </div>
 
@@ -62,13 +67,36 @@
                 <input type="checkbox"> Remember me </label>
                 <a href="forgotp.html">Forgot Password?</a>
         </div>
-        <button type="submit"> Login </button>
+        <button type="submit" name="login"> Login </button>
         <div class="register-link">
             <p>Don't have an account? <a href="register.html"> Register</a></p>
         </div>
 
      </form>
    </div>
+    <?php
+        if (isset($_POST['login'])) {
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+
+            $run_login = mysqli_query($con, "select * from customer where Password='$password' AND Email='$email'");
+
+            $check_login = mysqli_num_rows($run_login);
+            $row_login = mysqli_fetch_array($run_login);
+
+            if ($check_login == 0) {
+                echo "<script>alert('Password or email is incorrect, Please try again!')</script>";
+                exit();
+            }
+
+            if ($check_login > 0) {
+                $_SESSION['email'] = $email;
+                echo "<script>alert('Logged in successfully!')</script>";
+                echo "<script>window.open('menu.php','_self')</script>";
+            }
+        }
+    ?>
+   
 </section> 
     
    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
