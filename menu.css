@@ -19,14 +19,13 @@ body{
 .container{
     position: relative;
     z-index: 1;
-    max-width: 500px;
-    
+    max-width: 800px;
     margin-right: 30px;
     padding: 50px;
     border-radius: 8px;
     box-shadow: 0 0 15px rgb(155, 75, 75);
     display: flex;
-    justify-content: right;
+    justify-content: center;
 }
 
 .container header{
@@ -40,16 +39,20 @@ body{
     display: flex; 
     justify-content: space-between; 
     flex-wrap: wrap; 
-    margin-top: 30px;
 }
 
 .form .column {
-    margin-bottom: 20px; /* This creates space below each button */
+    margin: 20px 10px; /* This creates space below each button */
 }
 
 .form a {
     display: block; /* Ensure the entire button area is clickable */
     text-decoration: none; /* Remove underlines from the links */
+}
+
+.form a:hover{
+    background: none;
+    box-shadow: none;
 }
 
 .form button {
@@ -58,16 +61,18 @@ body{
     color: black;
     font-size: 1rem;
     border: none;
-    margin-top: 10px;
+    margin: 10px;
     cursor: pointer;
     border-radius: 6px;
     font-weight: 600;
     transition: all 0.2s ease;
     background-color: palevioletred;
+    padding: 10px;
 }
 
 .form button:hover {
-    background-color: rgb(143, 15, 58);
+    background: rgb(206, 30, 88) !important;
+    box-shadow: none !important;
 }
 
 
