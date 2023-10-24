@@ -36,6 +36,12 @@ body{
   text-align: center;
 }
 
+.container .row {
+  display: flex;
+  gap: 20px;
+}
+
+
 .container .form{
   margin-top: 30px;
 }
@@ -110,6 +116,11 @@ body{
 }
 
 @media screen and (max-width: 500px) {
+
+  .container .row {
+    flex-wrap: wrap;
+  }
+  
   .form .column{
     flex-wrap: wrap;
   }
