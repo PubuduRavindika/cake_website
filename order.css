@@ -113,6 +113,17 @@ body{
   border: none;
   color:#4d4747;
   font-size: 1rem;
+  padding-left: 10px;
+}
+
+.select-box input{
+  height: 100%;
+  width: 100%;
+  outline: none;
+  border: none;
+  color: #4d4747;
+  font-size: 1rem;
+  padding-left: 10px;
 }
 
 @media screen and (max-width: 500px) {

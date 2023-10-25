@@ -24,11 +24,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     }
 
+    $product_cat = $_POST['product_cat'];
+
     // Insert data into the database
-    if (!empty($price) && !empty($imagePath)) {
+    if (!empty($price) && !empty($imagePath) && !empty($product_cat)) {
         require_once('connect.php'); // Include the database connection file
 
-        $query = "INSERT INTO add_item (price, image) VALUES (?, ?)";
+        $query = "INSERT INTO add_item (product_cat, price, image) VALUES ('$product_cat', ?, ?)";
         $stmt = $con->prepare($query);
         $stmt->bind_param('ss', $price, $imagePath);
 
@@ -40,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Redirect back to the birthday page after a short delay
             echo '<script>
                     setTimeout(function() {
-                        window.location.href = "birthday.html";
+                        window.location.href = "add_image_01.php";
                     }, 2000); // Delay for 2 seconds before redirecting
                   </script>';
             exit();
@@ -54,4 +56,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo "Both price and image are required fields.";
     }
 }
-?>
