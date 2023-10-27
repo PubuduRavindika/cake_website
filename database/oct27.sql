@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 27, 2023 at 08:43 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.0.19
+-- Generation Time: Oct 27, 2023 at 11:58 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `cake`
+-- Database: `cakenew`
 --
 
 -- --------------------------------------------------------
@@ -31,8 +31,8 @@ CREATE TABLE `add_item` (
   `Product_Id` int(11) NOT NULL,
   `product_cat` int(100) NOT NULL,
   `Price` varchar(11) NOT NULL,
-  `Image` varchar(100) CHARACTER SET latin1 NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `Image` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `add_item`
@@ -44,7 +44,8 @@ INSERT INTO `add_item` (`Product_Id`, `product_cat`, `Price`, `Image`) VALUES
 (28, 2, '2500', 'uploads/6538b036506a3_c1.jpg'),
 (29, 1, '2500', 'uploads/6538bb1ea8ca5_c3.jpeg'),
 (30, 1, '5000', 'uploads/6538bb2ae52cf_c4.jpg'),
-(31, 3, '5000', 'uploads/6538da977d47c_c1.jfif');
+(31, 3, '5000', 'uploads/6538da977d47c_c1.jfif'),
+(32, 4, '4000', 'uploads/653b64d3351be_c1.jpg');
 
 -- --------------------------------------------------------
 
@@ -56,7 +57,7 @@ CREATE TABLE `admin` (
   `Admin_Id` int(11) NOT NULL,
   `Username` varchar(255) NOT NULL,
   `Password` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -67,7 +68,7 @@ CREATE TABLE `admin` (
 CREATE TABLE `categories` (
   `cat_id` int(100) NOT NULL,
   `cat_title` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `categories`
@@ -95,7 +96,7 @@ CREATE TABLE `customer` (
   `Registration_Date` date NOT NULL,
   `Username` varchar(255) NOT NULL,
   `Password` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `customer`
@@ -105,7 +106,8 @@ INSERT INTO `customer` (`Customer_Id`, `Customer_Name`, `Address`, `Email`, `Pho
 (7, 'sadini', 'laksewana', 'sadinirashmika@gmail.com', 123456789, '2023-09-21', 'rash', 'qwer1234'),
 (8, 'sadini', 'new town', 'sadinirashmika@gmail.com', 764561231, '2023-09-22', 'saara', '1234tyuii'),
 (9, 'sadini ', 'laksewana', 'hjk22@gmail', 764561231, '2023-09-30', 'rashmi', '123cvbn'),
-(13, 'user', 'abcd', 'user@gmail.com', 711234567, '2023-10-24', 'user', '1234');
+(13, 'user', 'abcd', 'user@gmail.com', 711234567, '2023-10-24', 'user', '1234'),
+(14, 'shihan', 'pannala', 'fasd@gmail.com', 788765432, '2023-10-27', 'anu', '8534');
 
 -- --------------------------------------------------------
 
@@ -126,14 +128,14 @@ CREATE TABLE `custom_orders` (
   `Weight` decimal(5,2) NOT NULL,
   `Image` varchar(255) DEFAULT NULL,
   `Wish` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `custom_orders`
 --
 
 INSERT INTO `custom_orders` (`Custom_Order_Id`, `Customer_Name`, `Address`, `Phone_Number`, `Order_Date`, `Delivery_Date`, `Delivery_Time`, `Category`, `Flavor`, `Weight`, `Image`, `Wish`) VALUES
-(1, 'user', 'abcd', '711234567', '2023-10-27', '2023-10-29', '01:52:00', '', 'Chocalate', '1.00', '653b56b5557f3_c7.jpg', 'Happy Birthday');
+(2, 'user', 'abcd', '711234567', '2023-10-27', '2023-10-30', '13:36:00', 'Anniversary', 'Chocalate', 1.00, '653b61a158572_c7.png', 'happy engagement day');
 
 -- --------------------------------------------------------
 
@@ -147,7 +149,7 @@ CREATE TABLE `feedback` (
   `Review_Date` date NOT NULL,
   `Comments` varchar(255) NOT NULL,
   `Ratings` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -163,7 +165,7 @@ CREATE TABLE `inventory_details` (
   `Last_Stock_Received_Date` date NOT NULL,
   `Supplier_Id` int(11) NOT NULL,
   `Email` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -177,35 +179,7 @@ CREATE TABLE `invoice` (
   `Category` varchar(255) NOT NULL,
   `Weight` varchar(255) NOT NULL,
   `Price` float NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `order`
---
-
-CREATE TABLE `order` (
-  `Order_Id` int(11) NOT NULL,
-  `Customer_Name` varchar(255) NOT NULL,
-  `Address` varchar(255) NOT NULL,
-  `Phone_Number` varchar(20) NOT NULL,
-  `Order_Date` varchar(10) NOT NULL,
-  `Delivery_Date` varchar(10) NOT NULL,
-  `Delivery_Time` varchar(10) NOT NULL,
-  `Category` varchar(255) NOT NULL,
-  `Flavor` varchar(255) NOT NULL,
-  `Weight` varchar(20) NOT NULL,
-  `Image` varchar(100) CHARACTER SET latin1 NOT NULL,
-  `Wish` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `order`
---
-
-INSERT INTO `order` (`Order_Id`, `Customer_Name`, `Address`, `Phone_Number`, `Order_Date`, `Delivery_Date`, `Delivery_Time`, `Category`, `Flavor`, `Weight`, `Image`, `Wish`) VALUES
-(9, 'sadini', 'laksewana', '0764561231', '2023-09-23', '2023-09-30', '22:40:00', 'Anniversary', 'Eggless', '3kg', 'c3.jpeg', 'happy birthday sadini');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -227,17 +201,20 @@ CREATE TABLE `orders` (
   `Product_Id` int(11) NOT NULL,
   `Image` varchar(255) DEFAULT NULL,
   `Wish` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `orders`
 --
 
 INSERT INTO `orders` (`Order_Id`, `Customer_Name`, `Address`, `Phone_Number`, `Order_Date`, `Delivery_Date`, `Delivery_Time`, `Category`, `Flavor`, `Weight`, `Product_Id`, `Image`, `Wish`) VALUES
-(1, 'user', 'abcd', '711234567', '2023-10-27', '2023-10-29', '10:48:00', 'Birthday', 'Butter', '2.00', 26, 'uploads/6538b00c2dd71_c1.jpg', 'Happy Birthday'),
-(2, 'user', 'abcd', '711234567', '2023-10-27', '2023-10-29', '10:48:00', 'Birthday', 'Butter', '2.00', 26, 'uploads/6538b00c2dd71_c1.jpg', 'Happy Birthday'),
-(3, 'user', 'abcd', '711234567', '2023-10-27', '2023-10-29', '11:43:00', 'Birthday', 'Fruit', '0.05', 29, 'uploads/6538bb1ea8ca5_c3.jpeg', 'Happy Birthday'),
-(4, 'user', 'abcd', '711234567', '2023-10-27', '2023-10-31', '00:46:00', 'Birthday', 'Chocalate', '1.50', 27, 'uploads/6538b01d7541f_c2.jpg', 'Happy Birthday');
+(1, 'user', 'abcd', '711234567', '2023-10-27', '2023-10-29', '10:48:00', 'Birthday', 'Butter', 2.00, 26, 'uploads/6538b00c2dd71_c1.jpg', 'Happy Birthday'),
+(2, 'user', 'abcd', '711234567', '2023-10-27', '2023-10-29', '10:48:00', 'Birthday', 'Butter', 2.00, 26, 'uploads/6538b00c2dd71_c1.jpg', 'Happy Birthday'),
+(3, 'user', 'abcd', '711234567', '2023-10-27', '2023-10-29', '11:43:00', 'Birthday', 'Fruit', 0.05, 29, 'uploads/6538bb1ea8ca5_c3.jpeg', 'Happy Birthday'),
+(4, 'user', 'abcd', '711234567', '2023-10-27', '2023-10-31', '00:46:00', 'Birthday', 'Chocalate', 1.50, 27, 'uploads/6538b01d7541f_c2.jpg', 'Happy Birthday'),
+(5, 'user', 'abcd', '711234567', '2023-10-27', '2023-10-29', '01:36:00', 'Birthday', 'Chocalate', 0.50, 30, 'uploads/6538bb2ae52cf_c4.jpg', 'happy birthday sadini'),
+(6, 'user', 'abcd', '711234567', '2023-10-27', '2023-10-29', '16:56:00', 'Anniversary', 'Chocalate', 0.70, 28, 'uploads/6538b036506a3_c1.jpg', 'happy engagement day'),
+(7, 'shihan', 'pannala', '788765432', '2023-10-27', '2023-11-01', '07:55:00', 'Birthday', 'Eggless', 1.00, 30, 'uploads/6538bb2ae52cf_c4.jpg', 'Happ 34h bd');
 
 -- --------------------------------------------------------
 
@@ -248,18 +225,17 @@ INSERT INTO `orders` (`Order_Id`, `Customer_Name`, `Address`, `Phone_Number`, `O
 CREATE TABLE `payment_cus` (
   `PayCus_Id` int(11) NOT NULL,
   `Customer_Id` int(11) NOT NULL,
-  `Order_Id` int(11) NOT NULL,
   `Payment_Date` date NOT NULL,
   `Amount` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `payment_cus`
 --
 
-INSERT INTO `payment_cus` (`PayCus_Id`, `Customer_Id`, `Order_Id`, `Payment_Date`, `Amount`) VALUES
-(6, 8, 9, '2023-09-23', 7220),
-(7, 8, 9, '2023-10-25', 7220);
+INSERT INTO `payment_cus` (`PayCus_Id`, `Customer_Id`, `Payment_Date`, `Amount`) VALUES
+(6, 8, '2023-09-23', 7220),
+(7, 8, '2023-10-25', 7220);
 
 -- --------------------------------------------------------
 
@@ -272,7 +248,7 @@ CREATE TABLE `payment_sup` (
   `Supplier_Id` int(11) NOT NULL,
   `Payment_Date` date NOT NULL,
   `Amount` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `payment_sup`
@@ -294,7 +270,7 @@ CREATE TABLE `purchased_inventory` (
   `Supplier_Id` int(11) NOT NULL,
   `Material_Name` varchar(255) NOT NULL,
   `Stock_Quantity` varchar(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `purchased_inventory`
@@ -316,7 +292,7 @@ CREATE TABLE `review` (
   `Review_Id` int(11) NOT NULL,
   `Rating` int(11) NOT NULL,
   `Comment` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `review`
@@ -328,7 +304,8 @@ INSERT INTO `review` (`Review_Id`, `Rating`, `Comment`) VALUES
 (3, 0, 'ffsdgfdhgffjhj'),
 (4, 0, 'cvmbkcjijididjidjgidf'),
 (5, 0, ''),
-(6, 0, 'bhnm');
+(6, 0, 'bhnm'),
+(7, 0, 'djghl');
 
 -- --------------------------------------------------------
 
@@ -342,7 +319,7 @@ CREATE TABLE `sales` (
   `Category` varchar(255) NOT NULL,
   `Weight` varchar(255) NOT NULL,
   `Price` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `sales`
@@ -364,7 +341,7 @@ CREATE TABLE `supplier` (
   `Phone_Number` int(11) NOT NULL,
   `Email` varchar(255) NOT NULL,
   `Address` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `supplier`
@@ -385,7 +362,7 @@ CREATE TABLE `used_inventory` (
   `Material_Id` int(11) NOT NULL,
   `Material_Name` varchar(255) NOT NULL,
   `Reduced_Quantity` varchar(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `used_inventory`
@@ -451,12 +428,6 @@ ALTER TABLE `invoice`
   ADD KEY `Order_Id` (`Order_Id`);
 
 --
--- Indexes for table `order`
---
-ALTER TABLE `order`
-  ADD PRIMARY KEY (`Order_Id`);
-
---
 -- Indexes for table `orders`
 --
 ALTER TABLE `orders`
@@ -467,8 +438,7 @@ ALTER TABLE `orders`
 --
 ALTER TABLE `payment_cus`
   ADD PRIMARY KEY (`PayCus_Id`),
-  ADD KEY `Customer_Id` (`Customer_Id`),
-  ADD KEY `Order_Id` (`Order_Id`);
+  ADD KEY `Customer_Id` (`Customer_Id`);
 
 --
 -- Indexes for table `payment_sup`
@@ -514,7 +484,7 @@ ALTER TABLE `used_inventory`
 -- AUTO_INCREMENT for table `add_item`
 --
 ALTER TABLE `add_item`
-  MODIFY `Product_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `Product_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `admin`
@@ -532,13 +502,13 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `Customer_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `Customer_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `custom_orders`
 --
 ALTER TABLE `custom_orders`
-  MODIFY `Custom_Order_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Custom_Order_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `feedback`
@@ -559,16 +529,10 @@ ALTER TABLE `invoice`
   MODIFY `Invoice_Id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `order`
---
-ALTER TABLE `order`
-  MODIFY `Order_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `Order_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `Order_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `payment_cus`
@@ -592,7 +556,7 @@ ALTER TABLE `purchased_inventory`
 -- AUTO_INCREMENT for table `review`
 --
 ALTER TABLE `review`
-  MODIFY `Review_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `Review_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `sales`
@@ -633,8 +597,7 @@ ALTER TABLE `invoice`
 -- Constraints for table `payment_cus`
 --
 ALTER TABLE `payment_cus`
-  ADD CONSTRAINT `payment_cus_ibfk_1` FOREIGN KEY (`Customer_Id`) REFERENCES `customer` (`Customer_Id`),
-  ADD CONSTRAINT `payment_cus_ibfk_2` FOREIGN KEY (`Order_Id`) REFERENCES `order` (`Order_Id`);
+  ADD CONSTRAINT `payment_cus_ibfk_1` FOREIGN KEY (`Customer_Id`) REFERENCES `customer` (`Customer_Id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
