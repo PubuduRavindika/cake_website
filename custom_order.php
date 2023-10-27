@@ -54,7 +54,7 @@ if (!isset($_SESSION['customer_id'])) {
 
   <section class="container">
     <header>Order a Cake</header>
-    <form class="form" method="POST" action="order.php?pro_id=<?php echo $_GET['pro_id'] ?>" enctype="multipart/form-data">
+    <form class="form" method="POST" action="custom_order.php" enctype="multipart/form-data">
       <div class="row">
 
         <div class="input-box">
@@ -132,63 +132,21 @@ if (!isset($_SESSION['customer_id'])) {
         </div>
       </div>
 
-      <div class="input-box">
-        <?php
-        if (isset($_GET['pro_id'])) {
-          $product_id = $_GET['pro_id'];
-
-          $run_query_by_pro_id = mysqli_query($con, "select * from add_item where Product_Id = '$product_id'");
-
-          while ($row_pro = mysqli_fetch_array($run_query_by_pro_id)) {
-
-            $pro_id = $row_pro['Product_Id'];
-            $pro_img = $row_pro['Image'];
-            $pro_cat = $row_pro['product_cat'];
-
-            echo "
-              <label> Product Id </label>
-              <div class = 'pro_id'>$pro_id</div>
-              ";
-          }
-        }
-        ?>
-      </div>
-
-
 
       <div class="column">
 
         <div class="select-box">
-          <?php
+        <select name="category" required>
+            <option hidden> Category </option>
+            <option>Birthday</option>
+            <option>Wedding</option>
+            <option>Anniversary</option>
+            <option>Engagement</option>
+            <option>Christmas</option>
 
-          $pro_id;
-          $pro_img;
-          $pro_cat;
-          $cat_id;
-          $cat_title;
+            <option>Other</option>
 
-          if (isset($_GET['pro_id'])) {
-            $product_id = $_GET['pro_id'];
-
-            $run_query_by_pro_id = mysqli_query($con, "select * from add_item where Product_Id = '$product_id'");
-
-            while ($row_pro = mysqli_fetch_array($run_query_by_pro_id)) {
-
-              $pro_id = $row_pro['Product_Id'];
-              $pro_img = $row_pro['Image'];
-              $pro_cat = $row_pro['product_cat'];
-
-              $run_query_by_pro_cat = mysqli_query($con, "select * from categories where cat_id = '$pro_cat'");
-              while ($row_cat = mysqli_fetch_array($run_query_by_pro_cat)) {
-                $cat_id = $row_cat['cat_id'];
-                $cat_title = $row_cat['cat_title'];
-              }
-              echo "
-              <div class = 'pro_cat'>$cat_title</div>
-              ";
-            }
-          }
-          ?>
+          </select>
         </div>
 
         <div class="select-box">
@@ -208,6 +166,12 @@ if (!isset($_SESSION['customer_id'])) {
           <input type="number" name="weight" min="0" step="0.1" placeholder="Weight (Kg)">
         </div>
 
+      </div>
+
+      <div class="input-box">
+        <label>Image</label>
+        <input type="file" accept="image/*" name="image" id="imageInput" />
+        <label for="imageInput" class="file-label"></label>
       </div>
 
       <div class="input-box">
@@ -259,11 +223,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $flavor = $_POST['flavor'];
   $weight = $_POST['weight'];
   $wish = $_POST['wish'];
+  $category = $_POST['category'];
+  
+
+  if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
+    $uploadDir = 'image/'; // Create an 'uploads' directory to store images
+
+    // Generate a unique filename to avoid overwriting existing files
+    $imageFileName = uniqid() . '_' . $_FILES['image']['name'];
+    $imagePath = $uploadDir . $imageFileName;
+
+    if (move_uploaded_file($_FILES['image']['tmp_name'], $imagePath)) {
+        // Successfully uploaded the image
+    } else {
+        echo "Error uploading the image.";
+        exit();
+    }
+} else {
+    echo "Image upload failed.";
+    exit();
+}
 
 
   // $insert_product = "insert into order (Customer_Name,Address,Phone_Number,Order_Date,Delivery_Date,Delivery_Time,Category,Flavor,Weight,Product_Id,Image,Wish) values('$customer_name','$customer_address','$customer_number','$order_date','$delivery_date','$delivery_time','$cat_title','$flavor','$weight','$pro_id','$pro_img','$wish')";
 
-  $insert_product = "INSERT INTO `orders`(`Order_Id`, `Customer_Name`, `Address`, `Phone_Number`, `Order_Date`, `Delivery_Date`, `Delivery_Time`, `Category`, `Flavor`, `Weight`, `Product_Id`, `Image`, `Wish`) VALUES ('','$customer_name','$customer_address','$customer_number','$order_date','$delivery_date','$delivery_time','$cat_title','$flavor','$weight','$pro_id','$pro_img','$wish')";
+  $insert_product = "INSERT INTO `custom_orders`(`Custom_Order_Id`, `Customer_Name`, `Address`, `Phone_Number`, `Order_Date`, `Delivery_Date`, `Delivery_Time`, `Category`, `Flavor`, `Weight`, `Image`, `Wish`) VALUES ('','$customer_name','$customer_address','$customer_number','$order_date','$delivery_date','$delivery_time','$category','$flavor','$weight','$imageFileName','$wish')";
 
   // $insert_pro = mysqli_query($con, $insert_product);
 

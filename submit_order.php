@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $customer_name = isset($_POST["customer_name"]) ? $_POST["customer_name"] : '';
     $address = isset($_POST["address"]) ? $_POST["address"] : '';
     $phone_number = isset($_POST["phone_number"]) ? $_POST["phone_number"] : '';
-    $order_date = isset($_POST["order_date"]) ? $_POST["order_date"] : '';
+    $order_date = isset($_POST["current_date"]) ? $_POST["current_date"] : '';
     $delivery_date = isset($_POST["delivery_date"]) ? $_POST["delivery_date"] : '';
     $delivery_time = isset($_POST["delivery_time"]) ? $_POST["delivery_time"] : '';
     $category = isset($_POST["category"]) ? $_POST["category"] : '';
@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
     // Save the order details to the database
-    $query = "INSERT INTO `order` (Customer_Name, Address, Phone_Number, Order_Date, Delivery_Date, Delivery_Time, Category, Flavor, Weight, Shape, Product_Id, Image, Wish) 
+    $query = "INSERT INTO `orders` (Customer_Name, Address, Phone_Number, Order_Date, Delivery_Date, Delivery_Time, Category, Flavor, Weight, Shape, Product_Id, Image, Wish) 
               VALUES ('$customer_name', '$address', '$phone_number','$order_date', '$delivery_date', '$delivery_time', '$category', '$flavor', '$weight', '$shape', '$product_id','$imageFileName', '$wish')";
 
     // Execute the query and check for errors

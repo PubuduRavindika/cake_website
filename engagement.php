@@ -13,7 +13,7 @@ include("connect.php");
     <link rel="stylesheet" href="home.css">
     <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <title>Birthday</title>
+    <title>Engagement</title>
 </head>
 
 <body>
@@ -70,7 +70,7 @@ include("connect.php");
                 <div class='product-info'>
                 <p class='product-id'>Product ID: $pro_id</p>
                 <p class='product-price'>Rs.$pro_price.00</p>
-                <a href='order.html' class='order-button'>Order</a>
+                <a href='order.php?pro_id=$pro_id' class='order-button'>Order</a>
                 </div>
                 </div>    
                 ";
