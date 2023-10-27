@@ -76,6 +76,10 @@ body{
   
 }
 
+.input-box input{
+  padding-left: 10px;
+}
+
 
 .form .column{
   display: flex;
@@ -124,6 +128,42 @@ body{
   color: #4d4747;
   font-size: 1rem;
   padding-left: 10px;
+}
+
+.pro_id{
+  height: 100%;
+  width: 100%;
+  outline: none;
+  border: none;
+  color: #4d4747;
+  font-size: 1rem;
+  padding: 8px;
+  border-radius: 6px;
+  background-color: white;
+}
+
+.pro_cat{
+  height: 100%;
+  width: 100%;
+  outline: none;
+  border: none;
+  color: #4d4747;
+  font-size: 1rem;
+  padding: 8px;
+  background-color: white;
+}
+
+.customer{
+  height: 55%;
+  width: 100%;
+  outline: none;
+  border: none;
+  color: #4d4747;
+  font-size: 1rem;
+  padding: 8px;
+  border-radius: 6px;
+  background-color: white;
+  margin-top: 10px;
 }
 
 @media screen and (max-width: 500px) {

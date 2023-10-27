@@ -70,7 +70,7 @@ include("connect.php");
                 <div class='product-info'>
                 <p class='product-id'>Product ID: $pro_id</p>
                 <p class='product-price'>Rs.$pro_price.00</p>
-                <a href='order.php' class='order-button'>Order</a>
+                <a href='order.php?pro_id=$pro_id' class='order-button'>Order</a>
                 </div>
                 </div>    
                 ";
