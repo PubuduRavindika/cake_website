@@ -55,7 +55,7 @@ include("connect.php");
         <div class="input-box">
             <span class="icon"><ion-icon name="person-circle-outline"></ion-icon></span>
             <input type="text" name="email" required>
-            <label> Username</label>
+            <label> Email </label>
         </div>
         <div class="input-box">
             <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>

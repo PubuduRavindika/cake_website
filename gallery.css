@@ -18,7 +18,7 @@ body{
 
 .img-gallery img {
     width: 250px; /* Set the desired fixed width for all images */
-    height: 250px; /* Set the desired fixed height for all images */
+    height: 200px; /* Set the desired fixed height for all images */
     cursor: pointer;
 }
 
