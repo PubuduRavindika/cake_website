@@ -27,7 +27,7 @@ include("connect.php");
       <li><a href="menu.php">Menu</a></li>
       <li><a href="gallery.html">Gallery</a></li>
       <!-- <li><a href="order.html">Order a cake</a></li> -->
-      <li><a href="dashboard.php">dashboard</a></li>
+      <li><a href="user/dashboard.php">dashboard</a></li>
       <li><a href="review.html">Reviews</a></li>
       <li><a href="#">Contact us</a>
         <div class="dropdown_menu">

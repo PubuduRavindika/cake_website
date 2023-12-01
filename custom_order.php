@@ -32,7 +32,7 @@ if (!isset($_SESSION['customer_id'])) {
       <li><a href="menu.php">Menu</a></li>
       <li><a href="gallery.html">Gallery</a></li>
       <!-- <li><a href="order.html">Order a cake</a></li> -->
-      <li><a href="dashboard.php">dashboard</a></li>
+      <li><a href="user/dashboard.php">dashboard</a></li>
       <li><a href="review.html">Reviews</a></li>
       <li><a href="#">Contact us</a>
         <div class="dropdown_menu">
@@ -163,20 +163,20 @@ if (!isset($_SESSION['customer_id'])) {
         </div>
 
         <div class="select-box">
-          <input type="number" name="weight" min="0" step="0.1" placeholder="Weight (Kg)">
+          <input type="number" name="weight" min="0" step="0.1" placeholder="Weight (Kg)" required>
         </div>
 
       </div>
 
       <div class="input-box">
         <label>Image</label>
-        <input type="file" accept="image/*" name="image" id="imageInput" />
+        <input type="file" accept="image/*" name="image" id="imageInput" required/>
         <label for="imageInput" class="file-label"></label>
       </div>
 
       <div class="input-box">
         <label>Wish</label>
-        <input type="text" name="wish" />
+        <input type="text" name="wish" required/>
       </div>
 
 

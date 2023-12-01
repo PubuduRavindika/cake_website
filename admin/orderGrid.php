@@ -35,7 +35,6 @@
 				    <th> Category </th>
 					<th> Flavor </th>
 					<th> Weight </th>
-                    <th> Shape </th>
                     <th> Image </th>
                     <th> Wish </th>
                     
@@ -50,46 +49,47 @@
 
 <?php
 
-$servername = "localhost";
-$username = "admin";
-$password = "123";
-$database = "cake";
+// $servername = "localhost";
+// $username = "admin";
+// $password = "123";
+// $database = "cake";
+// $con = new mysqli("localhost", "admin", "123", "cake");
 
-// Create connection
-$connection = new mysqli("localhost", "admin", "123", "cake");
+$con = mysqli_connect("localhost", "root", "", "cake");
 
 // Check connection
-if ($connection->connect_error) {
-    die("Connection failed: " . $connection->connect_error);
+if ($con->connect_error) {
+    die("Connection failed: " . $con->connect_error);
 }
 
 // Read all rows from the database table
 $sql = "SELECT * FROM `order`"; // Use backticks around the table name
-$result = $connection->query($sql);
+$result = $con->query($sql);
 
 if (!$result) {
-    die("Invalid query: " . $connection->error);
+    die("Invalid query: " . $con->error);
 }
 
 // Read data of each row
 while ($row = $result->fetch_assoc()) {
+    $pro_img = $row["Image"];
     echo "<tr> 
     <td>", $row["Order_Id"], "</td>
    
     <td>", $row["Order_Date"], "</td>
     <td>", $row["Delivery_Date"], "</td>
     <td>", $row["Delivery_Time"], "</td>
-    
     <td>", $row["Category"], "</td>
     <td>", $row["Flavor"], "</td>
     <td>", $row["Weight"], "</td>
-    <td>", $row["Shape"], "</td>
-    <td>", $row["Image"], "</td>
+    <td>",
+    "<img src='uploads/$pro_img'>"
+     
+     , "</td>
     <td>", $row["Wish"], "</td>
     </tr>";
 }
 ?>
-
             </tbody>
 
         </table>
@@ -98,7 +98,7 @@ while ($row = $result->fetch_assoc()) {
     </tr>
 
                                                                                           
-                                   
+                                
 
                         
     
