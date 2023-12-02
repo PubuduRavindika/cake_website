@@ -30,7 +30,7 @@ if (!isset($_SESSION['customer_id'])) {
     <ul>
       <li><a class="active" href="index.php">Home</a></li>
       <li><a href="menu.php">Menu</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="gallery.php">Gallery</a></li>
       <!-- <li><a href="order.html">Order a cake</a></li> -->
       <li><a href="user/dashboard.php">dashboard</a></li>
       <li><a href="review.html">Reviews</a></li>
@@ -263,7 +263,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   // $insert_product = "insert into order (Customer_Name,Address,Phone_Number,Order_Date,Delivery_Date,Delivery_Time,Category,Flavor,Weight,Product_Id,Image,Wish) values('$customer_name','$customer_address','$customer_number','$order_date','$delivery_date','$delivery_time','$cat_title','$flavor','$weight','$pro_id','$pro_img','$wish')";
 
-  $insert_product = "INSERT INTO `orders`(`Order_Id`, `Customer_Name`, `Address`, `Phone_Number`, `Order_Date`, `Delivery_Date`, `Delivery_Time`, `Category`, `Flavor`, `Weight`, `Product_Id`, `Image`, `Wish`) VALUES ('','$customer_name','$customer_address','$customer_number','$order_date','$delivery_date','$delivery_time','$cat_title','$flavor','$weight','$pro_id','$pro_img','$wish')";
+  $insert_product = "INSERT INTO `orders`(`Order_Id`, `Customer_Id`, `Address`, `Phone_Number`, `Order_Date`, `Delivery_Date`, `Delivery_Time`, `Category`, `Flavor`, `Weight`, `Product_Id`, `Image`, `Wish`) VALUES ('','$customer_id','$customer_address','$customer_number','$order_date','$delivery_date','$delivery_time','$cat_title','$flavor','$weight','$pro_id','$pro_img','$wish')";
 
   // $insert_pro = mysqli_query($con, $insert_product);
 

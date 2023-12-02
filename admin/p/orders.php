@@ -39,10 +39,11 @@ include("../connect.php");
                 <table class="table">
                     <thead>
                         <tr>
-                            <th> Order_Id </th>
-                            <th> Order_Date </th>
-                            <th> Delivery_Date</th>
-                            <th> Delivery_Time</th>
+                            <th> Order Id </th>
+                            <th> Customer Id </th>
+                            <th> Order Date </th>
+                            <th> Delivery Date</th>
+                            <th> Delivery Time</th>
                             <th> Category </th>
                             <th> Flavor </th>
                             <th> Weight </th>
@@ -62,6 +63,7 @@ include("../connect.php");
 
         while ($order_row = mysqli_fetch_assoc($run_quary)) {
             $order_id = $order_row['Order_Id'];
+            $customer_id = $order_row['Customer_Id'];
             $order_date = $order_row['Order_Date'];
             $order_del_date = $order_row['Delivery_Date'];
             $order_del_time = $order_row['Delivery_Time'];
@@ -74,6 +76,7 @@ include("../connect.php");
 
             echo "<tr>
             <td>$order_id</td>
+            <td>$customer_id</td>
             <td>$order_date</td>
             <td>$order_del_date</td>
             <td>$order_del_time </td>

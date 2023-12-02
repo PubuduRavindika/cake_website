@@ -9,7 +9,7 @@ include("connect.php");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="gallery.css">
     <title>Document</title>
 </head>
 
@@ -35,21 +35,21 @@ include("connect.php");
             </div>
         </div>
     </div>
+    <div class="sub-container">
+        <?php
+            $quary = "SELECT * FROM custom_orders ORDER BY Custom_Order_Id DESC ";
+            $run_quary = mysqli_query($con, $quary);
+    
+            while ($order_row = mysqli_fetch_assoc($run_quary)) {
+                $order_id = $order_row['Custom_Order_Id'];
+                $order_image = $order_row['Image'];
 
-    <div class="center-content">
-        <h1>Welcome to our Online Cake Ordering Wonderland!</h1>
-
-        <div class="line"></div>
-
-        <p class="content">
-            <br>
-            Explore a delectable array of artisanal cakes, thoughtfully crafted to sweeten your moments.
-            <br><br> With just a few clicks, you can choose from an assortment of flavors, designs, and sizes, 
-            creating a personalized masterpiece for your celebrations. 
-            <br><br>Experience the convenience of online cake ordering like never before. 
-            <br<br>Order, customize, and savor the magic, all from 
-            the comfort of your home.
-        </p>
+                echo"
+                <img src='image/$order_image'>
+                ";
+            }
+        ?>
+        
     </div>
 
 

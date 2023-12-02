@@ -150,6 +150,60 @@ td img{
 }
 
 
+/* ----- change password ----- */
+
+form{
+    margin-top: 30px;
+}
+
+.form-group{
+    margin-bottom: 30px;
+    margin-right: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-label{
+    margin-bottom: 10px;
+}
+
+.form-control{
+    border: 1px solid rgb(161, 67, 67);
+    font-size: 20px;
+    color: #333;
+    border-radius: 5px;
+    padding: 5px 10px 5px 10px;
+}
+
+.form-control:hover{
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.1);
+}
+
+.form-control:focus{
+    outline: none;
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.1);
+}
+
+.btn{
+    height: 55px;
+    width: 300px;
+    color: black;
+    font-size: 1rem;
+    border: none;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    background-color: palevioletred;
+    padding: 10px;
+}
+
+.btn:hover{
+    background: rgb(206, 30, 88) !important;
+    box-shadow: none !important;
+}
+
 
 
 

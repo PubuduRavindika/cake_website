@@ -78,11 +78,11 @@ $customer_id = $_SESSION['customer_id'];
             </div>
         </div>
         <?php
-        $quary = "SELECT * FROM orders where Customer_Id = '$customer_id' ORDER BY Order_Id DESC ";
+        $quary = "SELECT * FROM custom_orders where Customer_Id = '$customer_id' ORDER BY Custom_Order_Id DESC ";
         $run_quary = mysqli_query($con, $quary);
 
         while ($order_row = mysqli_fetch_assoc($run_quary)) {
-            $order_id = $order_row['Order_Id'];
+            $order_id = $order_row['Custom_Order_Id'];
             $customer_id = $order_row['Customer_Id'];
             $order_date = $order_row['Order_Date'];
             $order_del_date = $order_row['Delivery_Date'];
@@ -90,7 +90,6 @@ $customer_id = $_SESSION['customer_id'];
             $order_category = $order_row['Category'];
             $order_flavor = $order_row['Flavor'];
             $order_weight = $order_row['Weight'];
-            $product_id = $order_row['Product_Id'];
             $order_image = $order_row['Image'];
             $order_wish = $order_row['Wish'];
 
@@ -102,8 +101,7 @@ $customer_id = $_SESSION['customer_id'];
             <td>$order_category</td>
             <td>$order_flavor</td>
             <td>$order_weight</td>
-            <td>$product_id</td>
-            <td><img src='../admin/$order_image' width='50px' height='50px'></td>
+            <td><img src='../image/$order_image' width='50px' height='50px'></td>
             <td>$order_wish</td>
             </tr>";
         }

@@ -28,7 +28,7 @@ include("connect.php");
         <ul>
             <li><a class="active" href="index.php">Home</a></li>
             <li><a href="menu.php">Menu</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="gallery.php">Gallery</a></li>
             <!-- <li><a href="order.html">Order a cake</a></li> -->
             <li><a href="user/dashboard.php">dashboard</a></li>
             <li><a href="review.html">Reviews</a></li>
@@ -54,7 +54,7 @@ include("connect.php");
         <h2>Login</h2>
         <div class="input-box">
             <span class="icon"><ion-icon name="person-circle-outline"></ion-icon></span>
-            <input type="text" name="email" required>
+            <input type="email" name="email" required>
             <label> Email </label>
         </div>
         <div class="input-box">
