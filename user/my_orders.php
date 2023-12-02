@@ -71,6 +71,7 @@ $customer_id = $_SESSION['customer_id'];
                             <th> Product Id </th>
                             <th> Image </th>
                             <th> Wish </th>
+                            <th> Status </th>
                         </tr>
                     </thead>
 
@@ -78,7 +79,7 @@ $customer_id = $_SESSION['customer_id'];
             </div>
         </div>
         <?php
-        $quary = "SELECT * FROM orders where Customer_Id = '$customer_id' ORDER BY Order_Id DESC ";
+        $quary = "SELECT * FROM order_new where Customer_Id = '$customer_id' ORDER BY Order_Id DESC ";
         $run_quary = mysqli_query($con, $quary);
 
         while ($order_row = mysqli_fetch_assoc($run_quary)) {
@@ -93,6 +94,7 @@ $customer_id = $_SESSION['customer_id'];
             $product_id = $order_row['Product_Id'];
             $order_image = $order_row['Image'];
             $order_wish = $order_row['Wish'];
+            $status = $order_row['status'];
 
             echo "<tr>
             <td>$order_id</td>
@@ -105,6 +107,7 @@ $customer_id = $_SESSION['customer_id'];
             <td>$product_id</td>
             <td><img src='../admin/$order_image' width='50px' height='50px'></td>
             <td>$order_wish</td>
+            <td>$status</td>
             </tr>";
         }
 

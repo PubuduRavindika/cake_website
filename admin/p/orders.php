@@ -24,9 +24,9 @@ include("../connect.php");
             <a href="customers.php" class="icon-a"> <i class="fa fa-users icons"></i>&nbsp;&nbsp; Customers </a>
             <a href="products.php" class="icon-a"> <i class="fa fa-tasks icons"></i>&nbsp;&nbsp; Products </a>
             <a href="dashboard_p.php" class="icon-a"> <i class="fa fa-tasks icons"></i>&nbsp;&nbsp; Inventory </a>
-            <a href="dashboard_p.php" class="icon-a"> <i class="fa fa-credit-card icons"></i>&nbsp;&nbsp; Payments </a>
+            <a href="view_accepted_orders.php" class="icon-a"> <i class="fa fa-credit-card icons"></i>&nbsp;&nbsp; Payments </a>
             <a href="dashboard_p.php" class="icon-a"> <i class="fa fa-user icons"></i>&nbsp;&nbsp; Category </a>
-            <a href="dashboard_p.php" class="icon-a"> <i class="fa fa-user icons"></i>&nbsp;&nbsp; Accounts </a>
+            <a href="feedback.php" class="icon-a"> <i class="fa fa-user icons"></i>&nbsp;&nbsp; Feedbacks </a>
         </div>
 
         <div class="main">
@@ -50,6 +50,9 @@ include("../connect.php");
                             <th> Product Id </th>
                             <th> Image </th>
                             <th> Wish </th>
+                            <th> Price </th>
+                            <th>Status</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
 
@@ -58,7 +61,7 @@ include("../connect.php");
         </div>
 
         <?php
-        $quary = "SELECT * FROM orders ORDER BY Order_Id DESC";
+        $quary = "SELECT * FROM order_new ORDER BY Order_Id DESC";
         $run_quary = mysqli_query($con, $quary);
 
         while ($order_row = mysqli_fetch_assoc($run_quary)) {
@@ -73,6 +76,8 @@ include("../connect.php");
             $product_id = $order_row['Product_Id'];
             $order_image = $order_row['Image'];
             $order_wish = $order_row['Wish'];
+            $price = $order_row['price'];
+            $status = $order_row['status'];
 
             echo "<tr>
             <td>$order_id</td>
@@ -86,10 +91,36 @@ include("../connect.php");
             <td>$product_id</td>
             <td><img src='../$order_image' width='50px' height='50px'></td>
             <td>$order_wish</td>
+            <td>Rs.$price.00/-</td>
+            <td>$status</td>
+            <td><button onclick='acceptOrder($order_id)'>Accept</button></td>
             </tr>";
         }
 
         ?>
+
+<script>
+    function acceptOrder(order_id) {
+        // Perform AJAX request to update the order status
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                // Parse the JSON response
+                var response = JSON.parse(xhr.responseText);
+
+                // Update the status in the table
+                var statusCell = document.querySelector("td[data-order='" + order_id + "']");
+                statusCell.innerHTML = response.status;
+
+                // Disable the button after clicking
+                var button = statusCell.nextElementSibling.querySelector("button");
+                button.disabled = true;
+            }
+        };
+        xhr.open("GET", "update_order_status.php?order_id=" + order_id, true);
+        xhr.send();
+    }
+</script>
 
 </body>
 

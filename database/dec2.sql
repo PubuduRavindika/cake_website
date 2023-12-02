@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 02, 2023 at 04:24 AM
+-- Generation Time: Dec 02, 2023 at 04:58 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.0.19
 
@@ -142,12 +142,19 @@ INSERT INTO `custom_orders` (`Custom_Order_Id`, `Customer_Id`, `Address`, `Phone
 --
 
 CREATE TABLE `feedback` (
-  `Feedback_Id` int(11) NOT NULL,
-  `Customer_Name` varchar(255) NOT NULL,
-  `Review_Date` date NOT NULL,
-  `Comments` varchar(255) NOT NULL,
-  `Ratings` varchar(255) NOT NULL
+  `user_id` int(100) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` text NOT NULL,
+  `message` varchar(255) NOT NULL,
+  `rating` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `feedback`
+--
+
+INSERT INTO `feedback` (`user_id`, `name`, `email`, `message`, `rating`) VALUES
+(13, 'test', 'test@gmail.com', 'test', 3);
 
 -- --------------------------------------------------------
 
@@ -184,30 +191,40 @@ CREATE TABLE `invoice` (
 --
 -- Table structure for table `orders`
 --
+-- Error reading structure for table cake.orders: #1932 - Table 'cake.orders' doesn't exist in engine
+-- Error reading data for table cake.orders: #1064 - You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FROM `cake`.`orders`' at line 1
 
-CREATE TABLE `orders` (
-  `Order_Id` int(11) NOT NULL,
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `order_new`
+--
+
+CREATE TABLE `order_new` (
+  `Order_Id` int(100) NOT NULL,
+  `Product_Id` int(100) NOT NULL,
   `Customer_Id` int(100) NOT NULL,
-  `Address` varchar(255) NOT NULL,
-  `Phone_Number` varchar(20) NOT NULL,
-  `Order_Date` date NOT NULL,
   `Delivery_Date` date NOT NULL,
   `Delivery_Time` time NOT NULL,
   `Category` varchar(255) NOT NULL,
-  `Flavor` varchar(255) NOT NULL,
+  `Address` varchar(255) NOT NULL,
+  `Flavor` varchar(100) NOT NULL,
+  `Phone_Number` varchar(20) NOT NULL,
   `Weight` decimal(5,2) NOT NULL,
-  `Product_Id` int(11) NOT NULL,
-  `Image` varchar(255) DEFAULT NULL,
-  `Wish` text DEFAULT NULL
+  `Image` varchar(255) NOT NULL,
+  `Order_Date` date NOT NULL,
+  `price` int(100) NOT NULL,
+  `Wish` varchar(255) NOT NULL,
+  `status` varchar(50) DEFAULT 'Pending'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `orders`
+-- Dumping data for table `order_new`
 --
 
-INSERT INTO `orders` (`Order_Id`, `Customer_Id`, `Address`, `Phone_Number`, `Order_Date`, `Delivery_Date`, `Delivery_Time`, `Category`, `Flavor`, `Weight`, `Product_Id`, `Image`, `Wish`) VALUES
-(5, 13, 'abcd', '711234567', '2023-12-01', '2023-12-06', '11:35:00', 'Birthday', 'Chocalate', '2.00', 26, 'uploads/6538b00c2dd71_c1.jpg', 'Happy Birthday'),
-(6, 13, 'abcd', '711234567', '2023-12-01', '2023-12-06', '01:52:00', 'Anniversary', 'Chocalate', '2.00', 28, 'uploads/6538b036506a3_c1.jpg', 'Happy Birthday');
+INSERT INTO `order_new` (`Order_Id`, `Product_Id`, `Customer_Id`, `Delivery_Date`, `Delivery_Time`, `Category`, `Address`, `Flavor`, `Phone_Number`, `Weight`, `Image`, `Order_Date`, `price`, `Wish`, `status`) VALUES
+(10, 26, 13, '2023-12-06', '18:13:00', 'Birthday', 'abcd', 'Eggless', '711234567', '2.00', 'uploads/6538b00c2dd71_c1.jpg', '2023-12-02', 10000, 'Happy Birthday', 'Accepted'),
+(11, 29, 13, '2023-12-06', '20:24:00', 'Birthday', 'abcd', 'Chocalate', '711234567', '2.00', 'uploads/6538bb1ea8ca5_c3.jpeg', '2023-12-02', 5000, 'Happy Birthday', 'Accepted');
 
 -- --------------------------------------------------------
 
@@ -403,7 +420,7 @@ ALTER TABLE `custom_orders`
 -- Indexes for table `feedback`
 --
 ALTER TABLE `feedback`
-  ADD PRIMARY KEY (`Feedback_Id`);
+  ADD PRIMARY KEY (`user_id`);
 
 --
 -- Indexes for table `inventory_details`
@@ -421,9 +438,9 @@ ALTER TABLE `invoice`
   ADD KEY `Order_Id` (`Order_Id`);
 
 --
--- Indexes for table `orders`
+-- Indexes for table `order_new`
 --
-ALTER TABLE `orders`
+ALTER TABLE `order_new`
   ADD PRIMARY KEY (`Order_Id`);
 
 --
@@ -508,7 +525,7 @@ ALTER TABLE `custom_orders`
 -- AUTO_INCREMENT for table `feedback`
 --
 ALTER TABLE `feedback`
-  MODIFY `Feedback_Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `user_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `inventory_details`
@@ -523,10 +540,10 @@ ALTER TABLE `invoice`
   MODIFY `Invoice_Id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `orders`
+-- AUTO_INCREMENT for table `order_new`
 --
-ALTER TABLE `orders`
-  MODIFY `Order_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+ALTER TABLE `order_new`
+  MODIFY `Order_Id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `payment_cus`

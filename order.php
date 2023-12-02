@@ -144,6 +144,7 @@ if (!isset($_SESSION['customer_id'])) {
             $pro_id = $row_pro['Product_Id'];
             $pro_img = $row_pro['Image'];
             $pro_cat = $row_pro['product_cat'];
+            $pro_price = $row_pro['Price'];
 
             echo "
               <label> Product Id </label>
@@ -153,6 +154,8 @@ if (!isset($_SESSION['customer_id'])) {
         }
         ?>
       </div>
+
+
 
 
 
@@ -205,7 +208,7 @@ if (!isset($_SESSION['customer_id'])) {
         </div>
 
         <div class="select-box">
-          <input type="number" name="weight" min="0" step="0.1" placeholder="Weight (Kg)">
+          <input type="number" name="weight" id="weight" min="1" step="0.1" placeholder="Weight (Kg)" oninput="updatePrice()" required>
         </div>
 
       </div>
@@ -213,6 +216,11 @@ if (!isset($_SESSION['customer_id'])) {
       <div class="input-box">
         <label>Wish</label>
         <input type="text" name="wish" />
+      </div>
+
+      <div class="input-box">
+        <label>Total Price</label>
+        <div id="totalPrice">Rs.<?php echo $pro_price; ?>.00/-</div>
       </div>
 
 
@@ -243,6 +251,15 @@ if (!isset($_SESSION['customer_id'])) {
       document.getElementById('current_date').value = dateString;
     </script>
 
+    <script>
+      function updatePrice() {
+        const weight = document.getElementById('weight').value;
+        const pricePerKg = <?php echo $pro_price; ?>;
+        const totalPrice = weight * pricePerKg;
+        document.getElementById('totalPrice').innerText = `Rs.${totalPrice.toFixed(2)}/-`;
+      }
+    </script>
+
 
 </body>
 
@@ -261,9 +278,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $wish = $_POST['wish'];
 
 
-  // $insert_product = "insert into order (Customer_Name,Address,Phone_Number,Order_Date,Delivery_Date,Delivery_Time,Category,Flavor,Weight,Product_Id,Image,Wish) values('$customer_name','$customer_address','$customer_number','$order_date','$delivery_date','$delivery_time','$cat_title','$flavor','$weight','$pro_id','$pro_img','$wish')";
 
-  $insert_product = "INSERT INTO `orders`(`Order_Id`, `Customer_Id`, `Address`, `Phone_Number`, `Order_Date`, `Delivery_Date`, `Delivery_Time`, `Category`, `Flavor`, `Weight`, `Product_Id`, `Image`, `Wish`) VALUES ('','$customer_id','$customer_address','$customer_number','$order_date','$delivery_date','$delivery_time','$cat_title','$flavor','$weight','$pro_id','$pro_img','$wish')";
+  // $insert_product = "INSERT INTO `order_new`(`Order_Id`, `Customer_Id`, `Address`, `Phone_Number`, `Order_Date`, `Delivery_Date`, `Delivery_Time`, `Category`, `Flavor`, `Weight`, `Product_Id`, `Image`, `price`, `Wish`) VALUES ('','$customer_id','$customer_address','$customer_number','$order_date','$delivery_date','$delivery_time','$cat_title','$flavor','$weight','$pro_id','$pro_img','$pro_price','$wish')";
+
+  $pro_price_per_kg = 0;
+
+  if (isset($_GET['pro_id'])) {
+    $product_id = $_GET['pro_id'];
+
+    $run_query_by_pro_id = mysqli_query($con, "select * from add_item where Product_Id = '$product_id'");
+
+    while ($row_pro = mysqli_fetch_array($run_query_by_pro_id)) {
+      $pro_price_per_kg = $row_pro['Price'];
+    }
+  }
+
+  // Calculate the total price
+  $pro_price = $weight * $pro_price_per_kg;
+
+  // Insert into the database
+  $insert_product = "INSERT INTO `order_new`(`Order_Id`, `Customer_Id`, `Address`, `Phone_Number`, `Order_Date`, `Delivery_Date`, `Delivery_Time`, `Category`, `Flavor`, `Weight`, `Product_Id`, `Image`, `price`, `Wish`) VALUES ('','$customer_id','$customer_address','$customer_number','$order_date','$delivery_date','$delivery_time','$cat_title','$flavor','$weight','$pro_id','$pro_img','$pro_price','$wish')";
 
   // $insert_pro = mysqli_query($con, $insert_product);
 
@@ -273,7 +307,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   } else {
     echo "Error: " . $insert_product . "<br>" . mysqli_error($con);
   }
-} 
+}
 ?>
 
 </html>

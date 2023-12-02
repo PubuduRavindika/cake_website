@@ -1,6 +1,13 @@
 <?php
-session_start();
+// view_accepted_orders.php
+
+// Include your database connection file
 include("../connect.php");
+
+// Fetch accepted orders from the database
+$query = "SELECT * FROM order_new WHERE status = 'Accepted'";
+$result = mysqli_query($con, $query);
+
 ?>
 
 <!DOCTYPE html>
@@ -31,54 +38,44 @@ include("../connect.php");
 
         <div class="main">
             <div class="col-div-6">
-                <span style="font-size: 30px; cursor: pointer; color: rgb(161, 67, 67);" class="nav">Products</span>
+                <span style="font-size: 30px; cursor: pointer; color: rgb(161, 67, 67);" class="nav">Accepted Orders</span>
                 <p style="color: rgb(161, 67, 67);">Main Admin</p>
             </div>
 
             <div class="sub-container">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th> Product Id </th>
-                            <th> Product category </th>
-                            <th> Price </th>
-                            <th> Image </th>
-                            <th> Edit </th>
-                        </tr>
-                    </thead>
+                <table>
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Payment</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
 
-                    <tbody>
+            
+                <?php 
+                
+                
+                while ($row = mysqli_fetch_assoc($result)) : ?>
+                    <tr>
+                        <td><?php echo $row['Order_Id']; ?></td>
+                        <td><?php 
+                        $price = $row['price'];
+                        echo "Rs.$price.00"; 
+                        ?></td>
+                        <!-- Add more columns as needed -->
+                        <td>
+                            <a class="view-button" href="view_bill.php?order_id=<?php echo $row['Order_Id']; ?>" target="_blank">View Bill</a>
+                        </td>
+                    </tr>
+                <?php endwhile; ?>
+            </tbody>
+        </table>    
             </div>
         </div>
 
-        <?php
-        $quary = "SELECT * FROM add_item ORDER BY Product_Id DESC";
-        $run_quary = mysqli_query($con, $quary);
-
-        while ($order_row = mysqli_fetch_assoc($run_quary)) {
-            $pro_id = $order_row['Product_Id'];
-            $pro_category = $order_row['product_cat'];
-            $pro_price = $order_row['Price'];
-            $pro_img = $order_row['Image'];
-
-            $cat_quary = "SELECT * FROM categories where cat_id = '$pro_category'";
-            $cat_run_quary = mysqli_query($con, $cat_quary);
-
-            while ($cat_order_row = mysqli_fetch_assoc($cat_run_quary)) {
-                $cat_title = $cat_order_row['cat_title'];
-            }
-
-
-            echo "<tr>
-            <td>$pro_id</td>
-            <td>$cat_title</td>
-            <td>Rs.$pro_price/-</td>
-            <td><img src='../$pro_img' width='50px' height='50px'></td>
-            <td><a href=''>edit</a></td>
-            </tr>";
-        }
-
-        ?>
+    
 
 </body>
 

@@ -31,7 +31,7 @@ include("../connect.php");
 
         <div class="main">
             <div class="col-div-6">
-                <span style="font-size: 30px; cursor: pointer; color: rgb(161, 67, 67);" class="nav">Products</span>
+                <span style="font-size: 30px; cursor: pointer; color: rgb(161, 67, 67);" class="nav">Feedbacks</span>
                 <p style="color: rgb(161, 67, 67);">Main Admin</p>
             </div>
 
@@ -39,11 +39,11 @@ include("../connect.php");
                 <table class="table">
                     <thead>
                         <tr>
-                            <th> Product Id </th>
-                            <th> Product category </th>
-                            <th> Price </th>
-                            <th> Image </th>
-                            <th> Edit </th>
+                            <th> Customer Id </th>
+                            <th> Customer Name </th>
+                            <th> Email </th>
+                            <th> Message </th>
+                            <th> Rating </th>
                         </tr>
                     </thead>
 
@@ -52,29 +52,22 @@ include("../connect.php");
         </div>
 
         <?php
-        $quary = "SELECT * FROM add_item ORDER BY Product_Id DESC";
+        $quary = "SELECT * FROM feedback ORDER BY user_id DESC";
         $run_quary = mysqli_query($con, $quary);
 
         while ($order_row = mysqli_fetch_assoc($run_quary)) {
-            $pro_id = $order_row['Product_Id'];
-            $pro_category = $order_row['product_cat'];
-            $pro_price = $order_row['Price'];
-            $pro_img = $order_row['Image'];
-
-            $cat_quary = "SELECT * FROM categories where cat_id = '$pro_category'";
-            $cat_run_quary = mysqli_query($con, $cat_quary);
-
-            while ($cat_order_row = mysqli_fetch_assoc($cat_run_quary)) {
-                $cat_title = $cat_order_row['cat_title'];
-            }
-
+            $customer_id = $order_row['user_id'];
+            $name = $order_row['name'];
+            $email = $order_row['email'];
+            $message = $order_row['message'];
+            $rating = $order_row['rating'];
 
             echo "<tr>
-            <td>$pro_id</td>
-            <td>$cat_title</td>
-            <td>Rs.$pro_price/-</td>
-            <td><img src='../$pro_img' width='50px' height='50px'></td>
-            <td><a href=''>edit</a></td>
+            <td>$customer_id</td>
+            <td>$name</td>
+            <td>$email</td>
+            <td>$message</td>
+            <td>$rating</td>
             </tr>";
         }
 
