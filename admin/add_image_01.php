@@ -59,7 +59,8 @@ include("connect.php");
 
 
 
-            <button> Add </button>
+            <button style="margin-bottom: 10px;"> Add </button>
+            <a style="text-decoration: none; color: palevioletred;" href="p/dashboard_p.php">Close</a>
 
         </form>
     </section>

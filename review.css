@@ -1,158 +1,129 @@
 *{
     margin: 0;
-    padding:0;
+    padding: 0;
     box-sizing: border-box;
+}
+
+body{
     font-family: Arial;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 50px;
 }
 
-html,body{
-    
-    height: 100%;
-    place-items: center;
-    text-align: center;
-    background: url('backgrounds/c22.jpg') no-repeat;
-    background-size: cover;
-}
-
-.container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 400px;
-    background: rgb(226, 190, 197);
-    padding: 20px 30px;
-    border: 1px solid #444;
-    border-radius: 5px;
+.navbar{
     display: flex;
     align-items: center;
-    justify-content: center;
-    flex-direction: column;
-  }
-  
+    padding: 20px;
+}
 
-.container .post{
+nav{
+    flex: 1;
+    text-align: right;
+}
+
+nav ul{
+    display: inline-block;
+    list-style-type: none;
+}
+
+nav ul li{
+    display: inline-block;
+    margin-right: 20px;
+}
+
+a{
+    text-decoration: none;
+    color: white; 
+ }
+ 
+ p{
+     color: white;
+ }
+
+ .header{
+    background: rgb(150, 83, 94);
+}
+
+.menu-icon{
+    width: 28px;
+    margin-left: 20px;
     display: none;
-}
-
-.container .text{
-    font-size: 25px;
-    color: #666;
-    font-weight: 500;
-}
-
-.container .edit{
-    position: absolute;
-    right: 10px;
-    top: 5px;
-    font-size: 16px;
-    color: #666;
-    font-weight: 500;
-    cursor: pointer;
-}
-
-.container .edit:hover{
-    text-decoration: underline;
-}
-
-.container .star-widget input{
-    display: none;
-}
-
-.star-widget label{
-    font-size: 40px;
-    color: #444;
-    padding: 10px;
-    float: right;
-    transition: all 0.2s ease;
-}
-
-input:not(:checked) ~ label:hover,
-input:not(:checked) ~ label:hover ~ label{
-    color: rgb(139, 21, 40);
-}
-
-input#rate-5:checked ~ label{
-    color: rgb(199, 71, 113);
-    text-shadow: 0 0 20px rgb(235, 231, 29);
-}
-
-#rate-1:checked ~ form header:before{
-    content: "I just hate it";
-}
-
-#rate-2:checked ~ form header:before{
-    content: "I don't like it";
-}
-
-#rate-3:checked ~ form header:before{
-    content: "It is awesome";
-}
-
-#rate-4:checked ~ form header:before{
-    content: "I just like it";
-}
-
-#rate-5:checked ~ form header:before{
-    content: "I just love it";
-}
-
-.container form{
-    display: none;
-}
-
-input:checked ~ form{
-    display: block;
-}
-
-form header{
-    width: 100%;
-    font-size: 25px;
-    color: black;
-    font-weight: 500;
-    margin: 5px 0 20px 0;
-    text-align: center;
-    transition: all 0.2s ease;
-}
-
-form .textarea{
-    height: 100px;
-    width: 100%;
-    overflow: hidden;
-}
-
-form .textarea textarea{
-    height: 100%;
-    width: 100%;
-    outline: none;
-    color: black;
-    border: 1px solid #333;
-    background: #d89e9e;
-    padding: 10px;
-    font-size: 17px;
-    resize: none;
-}
-
-form .btn{
-    height: 45px;
-    width: 100%;
-    margin: 15px 0;
-}
-
-form .btn button{
-    height: 100%;
-    width: 100%;
-    border: 1px solid #444;
-    outline: none;
-    background: rgb(156, 41, 79);
     color: white;
-    font-size: 17px;
-    font-weight: 500;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 0.3s ease;
 }
 
-form .btn button:hover{
-    background: rgb(182, 96, 182) !important;
+.logo{
+    color: white;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.rev-container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.rev{
+    margin: 30px 300px 0px 300px;
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.name{
+    color: #333;
+    margin-top: 10px;
+}
+
+.name-head{
+    color: #333;
+    font-weight: bold;
+}
+
+.name-email{
+    color: #333;
+    margin-top: 5px;
+}
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 800px){
+    nav ul{
+        position: absolute;
+        top: 70px;
+        left: 0;
+        background: #333;
+        width: 100%;
+        overflow: hidden;
+        transition: max-height 0.5s;
+    }
+
+    nav ul li{
+        display: block;
+        margin-right: 50px;
+        margin-top: 10px;
+        margin-bottom: 10px;   
+    }
+
+    nav ul li a{
+        color: white;
+    }
+
+    .menu-icon{
+        display: block;
+        cursor: pointer;
+    }
+
+    .logo{
+        font-size: 25px;
+    }
+
+    
 }

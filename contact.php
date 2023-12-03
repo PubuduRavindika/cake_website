@@ -27,7 +27,7 @@ include("connect.php");
                         <li><a href="menu.php">Menu</a></li>
                         <li><a href="gallery.html">Gallery</a></li>
                         <li><a href="user/dashboard.php">Dashboard</a></li>
-                        <li><a href="review.html">Reviews</a></li>
+                        <li><a href="review.php">Reviews</a></li>
                         <li><a href="contact.php">Contact us</a></li>
                         <li><a href="login.php">Login</a></li>
                     </ul>
@@ -132,7 +132,7 @@ include("connect.php");
     </script>
 
 
-<script>
+    <script>
         const stars = document.querySelectorAll('.rating i');
         const ratingInput = document.getElementById('rating');
         const form = document.querySelector('form');

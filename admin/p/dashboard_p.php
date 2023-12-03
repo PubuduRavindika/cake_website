@@ -48,6 +48,10 @@ include("../connect.php");
                     <p>Rs.2300<br><span>Sales</span></p>
                     <i class="fa fa-usd box-icon"></i>
                 </div>
+                <a href="../add_image_01.php" class="box-add">
+                    <p><span>Add New Item</span></p>
+                    <i class="fa fa-plus box-icon"></i>
+                </a>
             </div>
         </div>
 

@@ -49,7 +49,10 @@ include("../connect.php");
                             <th> Weight </th>
                             <th> Image </th>
                             <th> Wish </th>
-                        </tr>
+                            <th> Status </th>
+                            <th> Price(Rs.) </th>
+                            <th> Action</th>
+
                     </thead>
 
                     <tbody>
@@ -71,8 +74,10 @@ include("../connect.php");
             $order_weight = $order_row['Weight'];
             $order_image = $order_row['Image'];
             $order_wish = $order_row['Wish'];
+            $order_price = $order_row['price'];
+            $order_status = $order_row['status'];
 
-            echo "<tr>
+            echo "<tr data-order='$order_id'>
             <td>$order_id</td>
             <td>$customer_id</td>
             <td>$order_date</td>
@@ -83,10 +88,61 @@ include("../connect.php");
             <td>$order_weight</td>
             <td><img src='../../image/$order_image' width='50px' height='50px'></td>
             <td>$order_wish</td>
+            <td>$order_status</td>
+            <td><input type='text' name='price' class='price' placeholder='$order_price' required></td>
+            <td>
+                
+                <button onclick='acceptOrder($order_id, \"$order_price\")'>Accept</button>
+            </td>
             </tr>";
         }
 
         ?>
+
+        <script>
+            function acceptOrder(order_id, originalPrice) {
+                // Get the input field
+                var priceInput = document.querySelector("tr[data-order='" + order_id + "'] input.price");
+
+                // Check if the price is filled
+                if (!priceInput.value) {
+                    alert("Please fill in the price before accepting the order.");
+                    return;
+                }
+
+                // Perform AJAX request to update the order status and price
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState == 4) {
+                        if (xhr.status == 200) {
+                            // Parse the JSON response
+                            var response = JSON.parse(xhr.responseText);
+
+                            // Update the status in the table
+                            var statusCell = document.querySelector("td[data-order='" + order_id + "'] td:last-child");
+                            statusCell.innerHTML = response.status;
+
+                            // Update the price in the input field
+                            priceInput.value = response.price;
+
+                            // Disable the input field and button after updating
+                            priceInput.disabled = true;
+                            var button = statusCell.nextElementSibling.querySelector("button");
+                            button.disabled = true;
+                        } else {
+                            alert("Error updating status and price.");
+                        }
+                    }
+                };
+
+                // Get the new price from the input field
+                var newPrice = priceInput.value;
+
+                // Open the AJAX request
+                xhr.open("GET", "custom_update_order_status.php?order_id=" + order_id + "&price=" + newPrice, true);
+                xhr.send();
+            }
+        </script>
 
 </body>
 

@@ -31,7 +31,7 @@ include("../connect.php");
 
         <div class="main">
             <div class="col-div-6">
-                <span style="font-size: 30px; cursor: pointer; color: rgb(161, 67, 67);" class="nav">Feedbacks</span>
+                <span style="font-size: 30px; cursor: pointer; color: rgb(161, 67, 67);" class="nav">Feedback Report</span>
                 <p style="color: rgb(161, 67, 67);">Main Admin</p>
             </div>
 
@@ -66,7 +66,7 @@ include("../connect.php");
             <td>$customer_id</td>
             <td>$name</td>
             <td>$email</td>
-            <td>$message</td>
+            <td><textarea rows='5' style = 'width: 300px'>$message</textarea></td>
             <td>$rating</td>
             </tr>";
         }

@@ -31,7 +31,7 @@ if (!isset($_SESSION['customer_id'])) {
       <li><a href="gallery.php">Gallery</a></li>
       <!-- <li><a href="order.html">Order a cake</a></li> -->
       <li><a href="user/dashboard.php">dashboard</a></li>
-      <li><a href="review.html">Reviews</a></li>
+      <li><a href="review.php">Reviews</a></li>
       <li><a href="#">Contact us</a>
         <div class="dropdown_menu">
 

@@ -30,9 +30,9 @@ $customer_id = $_SESSION['customer_id'];
                     <ul id="menuItems">
                         <li><a href="../index.php">Home</a></li>
                         <li><a href="../menu.php">Menu</a></li>
-                        <li><a href="../gallery.html">Gallery</a></li>
+                        <li><a href="../gallery.php">Gallery</a></li>
                         <li><a href="../dashboard.php">Dashboard</a></li>
-                        <li><a href="../review.html">Reviews</a></li>
+                        <li><a href="../review.php">Reviews</a></li>
                         <li><a href="../index.php">Contact us</a></li>
                         <li><a href="../logout.php">Log Out</a></li>
                     </ul>

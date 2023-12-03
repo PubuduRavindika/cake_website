@@ -30,9 +30,9 @@ $customer_id = $_SESSION['customer_id'];
                     <ul id="menuItems">
                         <li><a href="../index.php">Home</a></li>
                         <li><a href="../menu.php">Menu</a></li>
-                        <li><a href="../gallery.html">Gallery</a></li>
+                        <li><a href="../gallery.php">Gallery</a></li>
                         <li><a href="../dashboard.php">Dashboard</a></li>
-                        <li><a href="../review.html">Reviews</a></li>
+                        <li><a href="../review.php">Reviews</a></li>
                         <li><a href="../index.php">Contact us</a></li>
                         <li><a href="../logout.php">Log Out</a></li>
                     </ul>
@@ -68,9 +68,10 @@ $customer_id = $_SESSION['customer_id'];
                             <th> Category </th>
                             <th> Flavor </th>
                             <th> Weight </th>
-                            <th> Product Id </th>
                             <th> Image </th>
                             <th> Wish </th>
+                            <th> Price(Rs.) </th>
+                            <th> Status </th>
                         </tr>
                     </thead>
 
@@ -92,6 +93,8 @@ $customer_id = $_SESSION['customer_id'];
             $order_weight = $order_row['Weight'];
             $order_image = $order_row['Image'];
             $order_wish = $order_row['Wish'];
+            $order_price = $order_row['price'];
+            $order_status = $order_row['status'];
 
             echo "<tr>
             <td>$order_id</td>
@@ -103,6 +106,8 @@ $customer_id = $_SESSION['customer_id'];
             <td>$order_weight</td>
             <td><img src='../image/$order_image' width='50px' height='50px'></td>
             <td>$order_wish</td>
+            <td>$order_price</td>
+            <td>$order_status</td>
             </tr>";
         }
 

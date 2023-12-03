@@ -76,6 +76,7 @@ body{
     background-color: rgb(224, 116, 201);
     margin-left: 10px;
     padding: 10px;
+    margin-bottom: 30px;
 }
 .box p{
     font-size: 25px;
@@ -91,6 +92,8 @@ body{
     font-weight: 400;
     color: white;
 }
+
+
 .box-icon{
     font-size: 40px!important;
     float: right;
@@ -100,6 +103,42 @@ body{
 }
 
 
+
+
+.box-add{
+    width: 85%;
+    height: 100px;
+    background-color: #19194e;
+    margin-left: 10px;
+    padding: 10px;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+.box-add:hover{
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.4);
+}
+
+.box-add p{
+    font-size: 25px;
+    color: white;
+    font-weight: bold;
+    line-height: 30px;
+    padding-left: 10px;
+    margin-top: 20px;
+    display: inline-block;
+}
+.box-add span{
+    font-size: 20px;
+    font-weight: 400;
+    color: white;
+}
+
+.box-add a{
+    font-size: 20px;
+    font-weight: 400;
+    color: white;
+    text-decoration: none;
+}
 
 
 
