@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 03, 2023 at 08:44 AM
+-- Generation Time: Dec 03, 2023 at 02:44 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.0.19
 
@@ -54,9 +54,16 @@ INSERT INTO `add_item` (`Product_Id`, `product_cat`, `Price`, `Image`) VALUES
 
 CREATE TABLE `admin` (
   `Admin_Id` int(11) NOT NULL,
-  `Username` varchar(255) NOT NULL,
+  `Email` varchar(255) NOT NULL,
   `Password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`Admin_Id`, `Email`, `Password`) VALUES
+(1, 'admin@gmail.com', '1234');
 
 -- --------------------------------------------------------
 
@@ -509,7 +516,7 @@ ALTER TABLE `add_item`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `Admin_Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Admin_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `categories`

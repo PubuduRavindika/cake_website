@@ -8,7 +8,7 @@ if (isset($_GET['order_id'])) {
     $order_id = $_GET['order_id'];
 
     // Fetch order details from the database
-    $query = "SELECT * FROM order_new WHERE Order_Id = $order_id";
+    $query = "SELECT * FROM custom_orders WHERE Custom_Order_Id = $order_id";
     $result = mysqli_query($con, $query);
     $order_details = mysqli_fetch_assoc($result);
     $user_id = $order_details['Customer_Id'];
@@ -130,7 +130,7 @@ if (isset($_GET['order_id'])) {
 
         <div class="order-details">
             <div class="order-details-left">
-                <p>Order ID: <span id="order-id"><?php echo $order_details['Order_Id']; ?></span></p>
+                <p>Order ID: <span id="order-id"><?php echo $order_details['Custom_Order_Id']; ?></span></p>
                 <p>Customer Name: <span id="customer-name"><?php echo $customer_details['Customer_Name']; ?></span></p>
                 <p>Delivery Address: <span id="delivery-address"><?php echo $order_details['Address']; ?></span></p>
                 <p>Telephone Number: <span id="telephone-number"><?php echo $order_details['Phone_Number']; ?></span></p>
@@ -147,8 +147,6 @@ if (isset($_GET['order_id'])) {
         <table class="product-table">
             <thead>
                 <tr>
-                    <th>Product ID</th>
-                    <th>Category</th>
                     <th>Weight</th>
                     <th>Flavor</th>
                     <th>Price</th>
@@ -156,8 +154,6 @@ if (isset($_GET['order_id'])) {
             </thead>
             <tbody>
                 <tr>
-                    <td><?php echo $order_details['Product_Id']; ?></td>
-                    <td><?php echo $order_details['Category']; ?></td>
                     <td>
                         <?php
                         $weight = $order_details['Weight'];

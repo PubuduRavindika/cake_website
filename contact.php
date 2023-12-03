@@ -40,7 +40,8 @@ include("connect.php");
 
     <!-- ---------------featured categories----------------- -->
     <section class="location">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.2601978258454!2d79.8941683140948!3d6.738080222502556!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2453836c75e31%3A0xabc8eab54326f914!2sOrion%20Technology%20Rebuilders!5e0!3m2!1sen!2slk!4v1661784464676!5m2!1sen!2slk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1013488.7421248133!2d78.66867057812497!3d7.132891000000021!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae233b3cfdc0907%3A0x487e3f9584cef4f4!2sJanith%20Cakes%20and%20Grocery!5e0!3m2!1sen!2slk!4v1701595304128!5m2!1sen!2slk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.2601978258454!2d79.8941683140948!3d6.738080222502556!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2453836c75e31%3A0xabc8eab54326f914!2sOrion%20Technology%20Rebuilders!5e0!3m2!1sen!2slk!4v1661784464676!5m2!1sen!2slk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
     </section>
 
     <section class="contact-us">
@@ -50,21 +51,21 @@ include("connect.php");
                     <i class="fa fa-home"></i>
                     <span>
                         <h5>Janith Cakes & Bakers</h5>
-                        <p>14 Ariyadasa Dharmabandu Mawatha, Moratuwa</p>
+                        <p style="color: black;">422 Kalutara south, Kalutara</p>
                     </span>
                 </div>
                 <div>
                     <i class="fa fa-phone"></i>
                     <span>
-                        <h5>+94 01 033 3638</h5>
-                        <p>24 Hour Service</p>
+                        <h5>+94 77 793 4527</h5>
+                        <p style="color: black;">24 Hour Service</p>
                     </span>
                 </div>
                 <div>
                     <i class="fa fa-envelope-o"></i>
                     <span>
                         <h5>janith@gmail.com</h5>
-                        <p>Email us your query</p>
+                        <p style="color: black;">Email us your query</p>
                     </span>
                 </div>
             </div>

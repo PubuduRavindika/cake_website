@@ -1,6 +1,13 @@
 <?php
-session_start();
+// view_accepted_orders.php
+
+// Include your database connection file
 include("../connect.php");
+
+// Fetch accepted orders from the database
+$query = "SELECT * FROM order_new WHERE status = 'Accepted'";
+$result = mysqli_query($con, $query);
+
 ?>
 
 <!DOCTYPE html>
@@ -29,47 +36,44 @@ include("../connect.php");
 
         <div class="main">
             <div class="col-div-6">
-                <span style="font-size: 30px; cursor: pointer; color: rgb(161, 67, 67);" class="nav">Feedback Report</span>
+                <span style="font-size: 30px; cursor: pointer; color: rgb(161, 67, 67);" class="nav">Accepted Orders</span>
                 <a style="color: rgb(161, 67, 67); text-decoration: none;" href="logout.php">Logout</a>
             </div>
 
             <div class="sub-container">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th> Customer Id </th>
-                            <th> Customer Name </th>
-                            <th> Email </th>
-                            <th> Message </th>
-                            <th> Rating </th>
-                        </tr>
-                    </thead>
+                <table>
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Payment</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
 
-                    <tbody>
+            
+                <?php 
+                
+                
+                while ($row = mysqli_fetch_assoc($result)) : ?>
+                    <tr>
+                        <td><?php echo $row['Order_Id']; ?></td>
+                        <td><?php 
+                        $price = $row['price'];
+                        echo "Rs.$price.00"; 
+                        ?></td>
+                        <!-- Add more columns as needed -->
+                        <td>
+                            <a class="view-button" href="view_bill.php?order_id=<?php echo $row['Order_Id']; ?>" target="_blank">View Bill</a>
+                        </td>
+                    </tr>
+                <?php endwhile; ?>
+            </tbody>
+        </table>    
             </div>
         </div>
 
-        <?php
-        $quary = "SELECT * FROM feedback ORDER BY user_id DESC";
-        $run_quary = mysqli_query($con, $quary);
-
-        while ($order_row = mysqli_fetch_assoc($run_quary)) {
-            $customer_id = $order_row['user_id'];
-            $name = $order_row['name'];
-            $email = $order_row['email'];
-            $message = $order_row['message'];
-            $rating = $order_row['rating'];
-
-            echo "<tr>
-            <td>$customer_id</td>
-            <td>$name</td>
-            <td>$email</td>
-            <td><textarea rows='5' style = 'width: 300px'>$message</textarea></td>
-            <td>$rating</td>
-            </tr>";
-        }
-
-        ?>
+    
 
 </body>
 
