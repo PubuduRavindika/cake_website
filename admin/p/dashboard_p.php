@@ -1,6 +1,71 @@
 <?php
 session_start();
 include("../connect.php");
+
+
+$query = "SELECT COUNT(*) as customer_count FROM customer";
+$result = mysqli_query($con, $query);
+
+// Check if the query was successful
+if ($result) {
+    $row = mysqli_fetch_assoc($result);
+    $customerCount = $row['customer_count'];
+} else {
+    // Handle the error if the query fails
+    $customerCount = "Error fetching customer count";
+}
+
+$queryCustomOrders = "SELECT COUNT(*) as custom_orders_count FROM custom_orders WHERE status = 'Accepted'";
+$resultCustomOrders = mysqli_query($con, $queryCustomOrders);
+
+if ($resultCustomOrders) {
+    $row = mysqli_fetch_assoc($resultCustomOrders);
+    $customOrderCount = $row['custom_orders_count'];
+} else {
+    // Handle the error if the query fails
+    $customOrderCount = "Error fetching customer count";
+}
+
+$queryOrderNew = "SELECT COUNT(*) as order_new_count FROM order_new WHERE status = 'Accepted'";
+$resultOrderNew = mysqli_query($con, $queryOrderNew);
+
+
+if ($resultOrderNew) {
+    $row = mysqli_fetch_assoc($resultOrderNew);
+    $OrderCount = $row['order_new_count'];
+} else {
+    // Handle the error if the query fails
+    $OrderCount = "Error fetching customer count";
+}
+
+$total_orders = $OrderCount + $customOrderCount;
+
+
+
+
+
+$order_query = "SELECT * FROM order_new WHERE status = 'Accepted'";
+    $order_result = mysqli_query($con, $order_query);
+
+    // Fetch data from custom_orders table with LIMIT
+    $custom_query = "SELECT * FROM custom_orders WHERE status = 'Accepted'";
+    $custom_result = mysqli_query($con, $custom_query);
+
+    while ($order_row = mysqli_fetch_assoc($order_result)) {
+
+        $totalOrderPrice += $order_row['price'];
+    }
+
+    while ($custom_order_row = mysqli_fetch_assoc($custom_result)) {
+
+        $totalCustomOrderPrice += $custom_order_row['price'];
+    }
+
+    $total_price = $totalOrderPrice + $totalCustomOrderPrice;
+
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -35,15 +100,15 @@ include("../connect.php");
 
             <div class="sub-container">
                 <div class="box">
-                    <p>67<br><span>Customers</span></p>
+                    <p><?php echo $customerCount;?><br><span>Customers</span></p>
                     <i class="fa fa-users box-icon"></i>
                 </div>
                 <div class="box">
-                    <p>23<br><span>Orders</span></p>
+                    <p><?php echo $total_orders;?><br><span>Orders</span></p>
                     <i class="fa fa-shopping-bag box-icon"></i>
                 </div>
-                <a href="view_report.php" class="box">
-                    <p>Rs.2300<br><span>Sales</span></p>
+                <a href="view_report.php" class="box-add">
+                    <p><?php echo "Rs.$total_price.00";?><br><span>Sales</span></p>
                     <i class="fa fa-usd box-icon"></i>
                 </a>
                 <a href="../add_image_01.php" class="box-add">
