@@ -5,7 +5,7 @@
 include("../connect.php");
 
 // Fetch accepted orders from the database
-$query = "SELECT * FROM custom_orders WHERE status = 'Accepted'";
+$query = "SELECT * FROM order_new WHERE status = 'Accepted'";
 $result = mysqli_query($con, $query);
 
 ?>
@@ -37,41 +37,17 @@ $result = mysqli_query($con, $query);
 
         <div class="main">
             <div class="col-div-6">
-                <span style="font-size: 30px; cursor: pointer; color: rgb(161, 67, 67);" class="nav">Accepted Custom Orders</span>
+                <span style="font-size: 30px; cursor: pointer; color: rgb(161, 67, 67);" class="nav">Manage Suppliers</span>
                 <a style="color: rgb(161, 67, 67); text-decoration: none;" href="logout.php">Logout</a>
             </div>
 
             <div class="sub-container">
-                <table>
-            <thead>
-                <tr>
-                    <th>Order ID</th>
-                    <th>Payment</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-
-            
-                <?php 
-                
-                
-                while ($row = mysqli_fetch_assoc($result)) : ?>
-                    <tr>
-                        <td><?php echo $row['Custom_Order_Id']; ?></td>
-                        <td><?php 
-                        $price = $row['price'];
-                        echo "Rs.$price.00"; 
-                        ?></td>
-                        <!-- Add more columns as needed -->
-                        <td>
-                            <a class="view-button" href="custom_order_bill.php?order_id=<?php echo $row['Custom_Order_Id']; ?>" target="_blank">View Bill</a>
-                        </td>
-                    </tr>
-                <?php endwhile; ?>
-            </tbody>
-        </table>    
+            <div class="view">
+            <a class="box" href="add_supplier.php"><span>Add Supplier</span></a>
+            <a class="box" href="view_supplier.php">View Supplier</a>
             </div>
+            
+                 
         </div>
 
     

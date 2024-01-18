@@ -32,6 +32,7 @@ $result = mysqli_query($con, $query);
             <a href="products.php" class="icon-a"> <i class="fa fa-tasks icons"></i>&nbsp;&nbsp; Products </a>
             <a href="view_accepted_orders.php" class="icon-a"> <i class="fa fa-credit-card icons"></i>&nbsp;&nbsp; Payments </a>
             <a href="feedback.php" class="icon-a"> <i class="fa fa-user icons"></i>&nbsp;&nbsp; Feedbacks </a>
+            <a href="manage_sup.php" class="icon-a"> <i class="fa fa-user icons"></i>&nbsp;&nbsp; Manage Suppliers </a>
         </div>
 
         <div class="main">
