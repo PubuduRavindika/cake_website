@@ -64,19 +64,18 @@ a{
 
 .logo{
     margin: 0px;
-    margin-left: 28px;
+    margin-left: 15px;
     margin-right: 10px;
     font-weight: bold;
     color: rgb(161, 67, 67);
     justify-content: center;
     margin-bottom: 30px;
-    font-size: 35px;
+    font-size: 25px;
 }
 
 .sidenav{
     height: auto;
     background-color: white;
-    overflow: hidden;
     transition: 0.5s;
     padding-top: 30px;
     box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.1);
@@ -84,9 +83,9 @@ a{
 }
 
 .sidenav a{
-    padding: 15px 8px 15px 32px;
+    padding: 15px 8px 15px 8px;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 15px;
     color: #818181;
     display: block;
     transition: 0.3s;
